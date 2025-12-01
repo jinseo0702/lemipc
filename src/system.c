@@ -102,7 +102,7 @@ int		detach_board(t_shm *board){
 }
 
 int		send_msg(int qid, t_myMsgbuf *msgbuf){
-  if (msgsnd(qid, msgbuf, sizeof(t_myMsgbuf), IPC_NOWAIT) == -1) {
+  if (msgsnd(qid, msgbuf, sizeof(t_myMsgbuf) - sizeof(long), IPC_NOWAIT) == -1) {
     perror("msgsnd : failed");
     return (-1);
   }
@@ -110,7 +110,7 @@ int		send_msg(int qid, t_myMsgbuf *msgbuf){
 }
 
 int		recv_msg(int qid, t_myMsgbuf *msgbuf, long type){
-  if (msgrcv(qid, msgbuf, sizeof(t_myMsgbuf), type, IPC_NOWAIT) == -1) {
+  if (msgrcv(qid, msgbuf, sizeof(t_myMsgbuf) - sizeof(long), type, IPC_NOWAIT) == -1) {
     perror("msgrcv : failed");
     return (-1);
   }

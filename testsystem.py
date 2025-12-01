@@ -20,6 +20,7 @@ class TestIPC(unittest.TestCase):
       """
       여러 프로세스를 동시에 돌려서 세마포어 / 공유메모리 race condition 확인
       """
+      print("------------------test_sem------------------")
       WORKER_COUNT = 5
       # 0. 혹시 남아있을 IPC 자원을 먼저 정리 (있으면)
       run_case("test_sem_clear_ipcs")
@@ -35,6 +36,9 @@ class TestIPC(unittest.TestCase):
           self.assertEqual(p.returncode, 0)
       # 3. 끝난 후 정리
       run_case("test_sem_clear_ipcs")
+
+  def test_msq_player(self):
+    self.assertEqual(run_case("test_msq_player"), 0)
 
 
 if __name__ == "__main__":

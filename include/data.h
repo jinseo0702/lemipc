@@ -15,7 +15,7 @@
   } e_kind;
 
   typedef enum e_team_no {
-    NON = 0,
+    NON = 7,
     TEAM_1 = 1,
     TEAM_2 = 2,
     TEAM_3 = 3,
@@ -31,6 +31,7 @@
 typedef struct s_shm {
 	int player_nbs;
 	int board[HEIGHT][WIDTH];
+	int team_nbs[MAXTEAM];
 } t_shm;
 
 typedef struct s_myMsgbuf{
@@ -38,8 +39,8 @@ typedef struct s_myMsgbuf{
 	int x;
 	int y;
 	e_kind kind; //0 게임 시작, 1 (x, y) 죽음, 2 게임끝
-  e_team_no team_no;
-  e_msg_order msg_order;
+	e_team_no team_no;
+	e_msg_order msg_order;
 }t_myMsgbuf;
 
 typedef struct s_playerData{
@@ -51,6 +52,8 @@ typedef struct s_playerData{
 	int qid; //msg queue id
 	int sid; //semaphore id
 	int mid; //shm id
+	t_shm *readonly;
+	t_shm *readwrite;
 }t_playerData;
 
 #endif

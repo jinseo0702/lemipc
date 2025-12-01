@@ -161,7 +161,6 @@ int test_shm_player(void){
 }
 
 int test_sem(void){
-  printf("------------------test_sem------------------\n");
   t_playerData player;
   init_playerdatata(&player);
   if (init_ipcs_ids(&player) == -1) {
@@ -212,13 +211,14 @@ int test_msq_player(void){
     }
 
     t_myMsgbuf msgbug;
-    msgbug.mytyep = 0;
+    msgbug.mytyep = NON;
     msgbug.x = 0;
     msgbug.y = 1;
     msgbug.kind = START_GAME;
     msgbug.team_no = NON;
     msgbug.msg_order = DO_NOTHING;
     if (send_msg(player.qid, &msgbug) == -1){
+	  perror("msq :send error");
       exit(1);
     }
   
@@ -254,7 +254,12 @@ int test_msq_player(void){
     if (init_ipcs_ids(&player) == -1) {
       return(1);
     }
-
+	t_myMsgbuf msgbuf;
+	if (recv_msg(player.qid,  &msgbuf, NON) == -1){
+		perror("msq :recv error");
+		return (1);
+	}
+	printf("msgbug value is mytyep = %ld x = %d y = %d kind = %d team_no = %d msg_order = %d\n", msgbuf.mytyep, msgbuf.x, msgbuf.y, msgbuf.kind, msgbuf.team_no, msgbuf.msg_order);
     clear_ipcs(player.mid, player.sid, player.qid);
     return (0);
   }
@@ -267,17 +272,19 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    if (strcmp(argv[1], "test_init_and_clear") == 0)
-        return test_init_and_clear();
-    if (strcmp(argv[1], "test_check_fist_player") == 0)
-        return test_check_fist_player();
-    if (strcmp(argv[1], "test_shm_player") == 0)
-        return test_shm_player();
-    if (strcmp(argv[1], "test_sem") == 0)
-        return test_sem();
-    if (strcmp(argv[1], "test_sem_clear_ipcs") == 0)
-        return test_sem_clear_ipcs();
+	if (strcmp(argv[1], "test_init_and_clear") == 0)
+		return test_init_and_clear();
+	if (strcmp(argv[1], "test_check_fist_player") == 0)
+		return test_check_fist_player();
+	if (strcmp(argv[1], "test_shm_player") == 0)
+			return test_shm_player();
+	if (strcmp(argv[1], "test_sem") == 0)
+		return test_sem();
+	if (strcmp(argv[1], "test_msq_player") == 0)
+		return test_msq_player();
+	if (strcmp(argv[1], "test_sem_clear_ipcs") == 0)
+		return test_sem_clear_ipcs();
 
-    fprintf(stderr, "Unknown test: %s\n", argv[1]);
-    return 1;
+	fprintf(stderr, "Unknown test: %s\n", argv[1]);
+	return 1;
 }
