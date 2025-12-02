@@ -35,8 +35,9 @@ int		init_ipcs_ids(t_playerData *playerData){
       perror("semctl: sem init fatal");
       return (-1); 
     }
+    return (2); //first player
   }
-  return (1);
+  return (0);
 }
 
 int		check_first_player(key_t key){
@@ -111,6 +112,7 @@ int		send_msg(int qid, t_myMsgbuf *msgbuf){
 
 int		recv_msg(int qid, t_myMsgbuf *msgbuf, long type){
   if (msgrcv(qid, msgbuf, sizeof(t_myMsgbuf) - sizeof(long), type, IPC_NOWAIT) == -1) {
+    if (errno == ENOMSG) return (ENOMSG);
     perror("msgrcv : failed");
     return (-1);
   }

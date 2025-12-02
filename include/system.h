@@ -9,6 +9,8 @@
 #include <sys/msg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+
 
 /*
 success return 1 / fail return -1

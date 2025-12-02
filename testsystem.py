@@ -40,6 +40,5 @@ class TestIPC(unittest.TestCase):
   def test_msq_player(self):
     self.assertEqual(run_case("test_msq_player"), 0)
 
-
 if __name__ == "__main__":
   unittest.main()
