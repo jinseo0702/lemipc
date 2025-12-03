@@ -100,3 +100,15 @@ int return_total_player_nbs(t_playerData *playerData){
   if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
   return (total_player_nbs);
 }
+
+int middle_step(t_playerData *playerData){
+
+}
+
+int recv_msg_check(t_playerData *playerData, t_myMsgbuf *msgbuf){
+	int team_no = playerData->team_no;
+	int error = recv_msg(playerData->qid, msgbuf, team_no);
+	if (error == ENOMSG) return (0);
+	if (error == -1) return (-1);
+	return (1);
+}

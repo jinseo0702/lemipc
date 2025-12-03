@@ -1,10 +1,10 @@
 #ifndef DATA_H
 #define DATA_H
 
-#define WIDTH 16
-#define HEIGHT 16
-#define MAXTEAM 6
-#define MAXTEAMNB 5
+#define WIDTH 100
+#define HEIGHT 100
+#define MAXTEAM 10
+#define MAXTEAMNB 20
 #define PATHNAME "/tmp"
 #define PROJID 'A'
 
@@ -18,15 +18,15 @@
 
   typedef enum e_team_no {
 		NONE = 0,
-    TEAM_1,
-    TEAM_2,
-    TEAM_3,
-    TEAM_4,
-    TEAM_5,
-		TEAM_6,
-		TEAM_7,
-		TEAM_8,
-		TEAM_9,
+    TEAM_1 = 'A',
+    TEAM_2 = 'B',
+    TEAM_3 = 'C',
+    TEAM_4 = 'D',
+    TEAM_5 = 'E',
+		TEAM_6 = 'F',
+		TEAM_7 = 'G',
+		TEAM_8 = 'H',
+		TEAM_9 = 'I',
   } e_team_no;
 
   typedef enum e_msg_order {

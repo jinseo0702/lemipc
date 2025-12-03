@@ -6,8 +6,8 @@ import os
 import signal
 from tkinter import NO
 
-TEAM = 6
-PLAYER_PER_TEAM = 5
+TEAM = 10
+PLAYER_PER_TEAM = 20
 GAME_EXE = "./lemipc"
 TOOL_EXE = "./testSystem"
 

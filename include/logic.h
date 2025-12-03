@@ -21,7 +21,9 @@ int   clear_not_reject_player(t_playerData *playerData);
 int   update_player_data(t_playerData *playerData);
 
 //utils.c
-void view_board(void);
-const char *get_team_color(int team_no);
+void        view_board(void);
+const char  *get_team_color(int team_no);
+int         check_argument(int argc, const char *argv[], int *team_no);
+int         check_first_step_flag(int flag, int team_no);
 
 #endif
