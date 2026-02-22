@@ -1,6 +1,7 @@
 #include "../include/logic.h"
 #include "../include/system.h"
 #include "../printf/libftprintf.h"
+#include "../include/game_algorithm.h"
 
 int main(int argc, char *argv[]){
   int team_no = 0;
@@ -24,5 +25,7 @@ int main(int argc, char *argv[]){
     }
   }
   sleep(2);
-	return (0);
+  run_game_loop(&playerData);
+  terminate_player(&playerData);
+  return (0);
 }

@@ -96,9 +96,18 @@ int update_board(t_playerData *playerData, t_pos pos, int team_no){
 int return_total_player_nbs(t_playerData *playerData){
 	int total_player_nbs = 0;
 	if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return (-1); }
-  total_player_nbs = playerData->readwrite->player_nbs;
-  if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
-  return (total_player_nbs);
+	total_player_nbs = playerData->readwrite->player_nbs;
+	if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
+	return (total_player_nbs);
+}
+
+int return_total_player_team_nbs(t_playerData *playerData, int *total_player_nbs){
+	if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return (-1); }
+	for (int i = 0; i < MAXTEAM; i++) {
+		total_player_nbs[i] = playerData->readwrite->team_nbs[i];
+	}
+	if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
+	return (0);
 }
 
 // int middle_step(t_playerData *playerData){

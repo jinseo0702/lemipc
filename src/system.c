@@ -20,7 +20,7 @@ int		init_ipcs_ids(t_playerData *playerData){
   playerData->sid = semget(key, 1, 0666 | IPC_CREAT);
   playerData->qid = msgget(key, 0666 | IPC_CREAT);
   if (playerData->qid == -1 || playerData->sid == -1 || playerData->mid == -1) {
-    clear_ipcs(playerData->qid, playerData->sid, playerData->mid);
+    clear_ipcs(playerData->mid, playerData->sid, playerData->qid);
     return (-1);
   }
   if (first_flag == 1){
@@ -59,7 +59,7 @@ void	clear_ipcs(int shm_id, int sem_id, int msg_id){
 }
 
 int		lock_sem(int semid){
-  struct sembuf sembuf = {0, -1, 0};
+  struct sembuf sembuf = {0, -1, SEM_UNDO};
   if (semop(semid, &sembuf, 1) == -1) {
     perror("semop : lock failed");
     return (-1);
@@ -68,7 +68,7 @@ int		lock_sem(int semid){
 }
 
 int		unlock_sem(int semid){
-  struct sembuf sembuf = {0, 1, 0};
+  struct sembuf sembuf = {0, 1, SEM_UNDO};
   if (semop(semid, &sembuf, 1) == -1) {
     perror("semop : unlock failed");
     return (-1);

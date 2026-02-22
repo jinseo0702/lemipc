@@ -1,9 +1,9 @@
 #ifndef DATA_H
 #define DATA_H
 
-#define WIDTH 16
-#define HEIGHT 16
-#define MAXTEAM 10
+#define WIDTH 5
+#define HEIGHT 5
+#define MAXTEAM 3
 #define MAXTEAMNB 5
 #define PATHNAME "/tmp"
 #define PROJID 'A'

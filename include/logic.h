@@ -13,6 +13,7 @@ int   first_step(t_playerData *playerData);
 int   attach_shm(t_playerData *playerData);
 int   update_board(t_playerData *playerData, t_pos pos, int team_no);
 int   return_total_player_nbs(t_playerData *playerData);
+int   return_total_player_team_nbs(t_playerData *playerData, int *total_player_nbs);
 
 //main.c
 //player.c
@@ -22,6 +23,7 @@ int   update_player_data(t_playerData *playerData);
 
 //utils.c
 void        view_board(void);
+void        view_board_player(t_playerData *playerData);
 const char  *get_team_color(int team_no);
 int         check_argument(int argc, const char *argv[], int *team_no);
 int         check_first_step_flag(int flag, int team_no);

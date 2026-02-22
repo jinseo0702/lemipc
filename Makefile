@@ -6,13 +6,15 @@ SRC = src/system.c \
 	src/logic.c \
 	src/main.c \
 	src/player.c \
-	src/utils.c
+	src/utils.c \
+	src/game_algorithm.c
 
 TESTSRC = src/testSystem.c \
 	src/system.c \
 	src/logic.c \
 	src/player.c \
-	src/utils.c
+	src/utils.c \
+	src/game_algorithm.c
 
 TESTOBJ = $(TESTSRC:.c=.o)
 

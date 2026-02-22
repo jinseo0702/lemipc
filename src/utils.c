@@ -57,21 +57,41 @@ void view_board(void){
     perror("readonly_board");
     return;
   }
-  printf("\n=== Board State (Players: %d) ===\n", readonly->player_nbs);
+  printf("\033[H"); // cursor home (전체 clear 안 함)
+  printf("=== Board State (Players: %3d) ===\033[K\n", readonly->player_nbs);
   for (int i = 0; i < HEIGHT; i++){
     for (int j = 0; j < WIDTH; j++){  
-      printf("%s%c%s ", get_team_color(readonly->board[i][j] - 'A'), readonly->board[i][j], RESET);
+		char c = readonly->board[i][j];
+		const char *color = (c == '0') ? GRAY : get_team_color(c - 'A');
+		printf("%s%c%s ", color, c, RESET);
     }
-    printf("\n");
+    printf("\033[K\n");
   }
-  printf("team info:\n");
-  printf("--------------------------------\n");
+  printf("team info:\033[K\n");
+  printf("--------------------------------\033[K\n");
   for (int i = 0; i < MAXTEAM; i++){
-    printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, readonly->team_nbs[i]);
+    printf("%s%d -> %c%s team: %d players\033[K\n", get_team_color(i), i, i + 'A', RESET, readonly->team_nbs[i]);
   }
-  printf("\n");
+  printf("\033[J");
+  fflush(stdout);
   detach_board(readonly);
 }
+
+void view_board_player(t_playerData *playerData){
+	printf("\n=== Board State (Players: %d) ===\n", playerData->readonly->player_nbs);
+	for (int i = 0; i < HEIGHT; i++){
+	  for (int j = 0; j < WIDTH; j++){  
+		printf("%s%c%s ", get_team_color(playerData->readonly->board[i][j] - 'A'), playerData->readonly->board[i][j], RESET);
+	  }
+	  printf("\n");
+	}
+	printf("team info:\n");
+	printf("--------------------------------\n");
+	for (int i = 0; i < MAXTEAM; i++){
+	  printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, playerData->readonly->team_nbs[i]);
+	}
+	printf("\n");
+  }
 
 int check_argument(int argc, const char *argv[], int *team_no){
 	if (argc != 2){
