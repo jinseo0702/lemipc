@@ -40,57 +40,65 @@ const char *get_team_color(int team_no) {
     }
 }
 
-void view_board(void){
+int view_board(void){
+  static int game_start_flag = 0;
   int shmid;
   key_t key = ftok(PATHNAME, PROJID);
   if (key == -1){
     perror("ftok");
-    return;
+    return (-1);
   }
   shmid = shmget(key, sizeof(t_shm), 0666);
-  if (shmid == -1){
-    perror("shmget");
-    return;
+  if (game_start_flag == 0 && shmid == -1) {
+    return (0);
+  }
+  else if (game_start_flag == 0 && shmid != -1) {
+    game_start_flag = 1;
+    ft_printf("Game Start\n");
+  }
+  else if (shmid == -1 && game_start_flag == 1) {
+    return (2);
   }
   t_shm *readonly = readonly_board(shmid);
   if (readonly == NULL){
     perror("readonly_board");
-    return;
+    return (-1);
   }
-  printf("\033[H"); // cursor home (전체 clear 안 함)
-  printf("=== Board State (Players: %3d) ===\033[K\n", readonly->player_nbs);
+  ft_printf("\033[H"); // cursor home (전체 clear 안 함)
+  ft_printf("=== Board State (Players: %d) ===\033[K\n", readonly->player_nbs);
   for (int i = 0; i < HEIGHT; i++){
     for (int j = 0; j < WIDTH; j++){  
 		char c = readonly->board[i][j];
 		const char *color = (c == '0') ? GRAY : get_team_color(c - 'A');
-		printf("%s%c%s ", color, c, RESET);
+		ft_printf("%s%c%s ", color, c, RESET);
     }
-    printf("\033[K\n");
+    ft_printf("\033[K\n");
   }
-  printf("team info:\033[K\n");
-  printf("--------------------------------\033[K\n");
+  ft_printf("team info:\033[K\n");
+  ft_printf("--------------------------------\033[K\n");
   for (int i = 0; i < MAXTEAM; i++){
-    printf("%s%d -> %c%s team: %d players\033[K\n", get_team_color(i), i, i + 'A', RESET, readonly->team_nbs[i]);
+    ft_printf("%s%d -> %c%s team: %d players\033[K\n", get_team_color(i), i, i + 'A', RESET, readonly->team_nbs[i]);
   }
-  printf("\033[J");
+  ft_printf("\033[J");
   fflush(stdout);
   detach_board(readonly);
+  return (0);
 }
 
 void view_board_player(t_playerData *playerData){
-	printf("\n=== Board State (Players: %d) ===\n", playerData->readonly->player_nbs);
+	ft_printf("\n=== Board State (Players: %d) ===\n", playerData->readonly->player_nbs);
 	for (int i = 0; i < HEIGHT; i++){
 	  for (int j = 0; j < WIDTH; j++){  
-		printf("%s%c%s ", get_team_color(playerData->readonly->board[i][j] - 'A'), playerData->readonly->board[i][j], RESET);
+		ft_printf("%s%c%s ", get_team_color(playerData->readonly->board[i][j] - 'A'), playerData->readonly->board[i][j], RESET);
 	  }
-	  printf("\n");
+	  ft_printf("\n");
 	}
-	printf("team info:\n");
-	printf("--------------------------------\n");
+	ft_printf("team info:\n");
+	ft_printf("--------------------------------\n");
 	for (int i = 0; i < MAXTEAM; i++){
-	  printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, playerData->readonly->team_nbs[i]);
+	  ft_printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, playerData->readonly->team_nbs[i]);
 	}
-	printf("\n");
+	ft_printf("\n");
   }
 
 int check_argument(int argc, const char *argv[], int *team_no){

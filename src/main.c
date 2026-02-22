@@ -2,10 +2,18 @@
 #include "../include/system.h"
 #include "../printf/libftprintf.h"
 #include "../include/game_algorithm.h"
+#include "../libft/libft.h"
 
 int main(int argc, char *argv[]){
   int team_no = 0;
-  if (check_argument(argc, (const char **)argv, &team_no) == 1){
+  if (argc == 2 && ft_strncmp(argv[1], "viewmode", 8) == 0) {
+    while (1) {
+      if (view_board() == 2) break;
+      usleep(16667);
+    }
+    return (0);
+  }
+  else if (check_argument(argc, (const char **)argv, &team_no) == 1){
     return (1);
   }
   t_playerData playerData;

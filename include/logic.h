@@ -22,7 +22,7 @@ int   clear_not_reject_player(t_playerData *playerData);
 int   update_player_data(t_playerData *playerData);
 
 //utils.c
-void        view_board(void);
+int         view_board(void);
 void        view_board_player(t_playerData *playerData);
 const char  *get_team_color(int team_no);
 int         check_argument(int argc, const char *argv[], int *team_no);
