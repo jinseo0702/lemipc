@@ -1,0 +1,87 @@
+lemipc 현재 발생한 문제 특정 process 들이 세그먼트 error 가 발생하면서 종료가 된다. 근데 이게 모든 프로세스는 아니다. 
+특정 프로세스만 이렇게 되는데
+```
+#0 0x572df86f24db in return_total_player_team_nbs src/logic.c:107
+#1 0x572df86f76b5 in terminate_player src/game_algorithm.c:344
+#2 0x572df86f29db in main src/main.c:37
+
+```
+
+지금 문제는 초반에 clear_ipcs 를 하지 않았음에도 문제가 발생한다. 이유가 뭘까??? 만약 clear_ipcs 를 하고 나서 라면문제가 발생하는게 맞다. 하지만 초반에는 clear_ipcs 를 안하는데 저게 발생하는건 모순이다. 다른 문제가 있을 것 같다. 
+
+아니다 확인 해보니 모든 프로세스가 같은 에러를 내고 있다. 즉 문제는 로직상에서 발생한다. 발생하는 문제는 세그먼트에러 즉 잘 못된 메모리접근이다. 
+
+지금 문제는 main에서 terminate_player 를 한번더 소환한다. 즉 두번 정리를 하고 있는데 이게 문제 인 것 같다. 설명을 하자면 정리를 한번하면 공유메모리에서 빠젼
+
+그리고 그 맨마지막에 남은 팀은 한명이 아니라 여러명인데 그 여러명이 한번에 공유메모리를 정리 하려고 하니까 또 문제가 생기는 거였네요. 즉 문제는 두가지 였네요.
+
+1. 모든 프로세스가 두번 clean up 정리를 실행해서 빠져나온 공유메모리에 접근한다.(세그먼트 에러)
+2. 게임을 이겼다는건 2명이상 남았다는건데 이 2명(이상)이 모든  ipcs 를 정리를한다. (이미 누군가 정리를 했다면 다음 팀원이 정리를 하는순간 문제 발생)
+
+
+해결 방법
+
+1. 1번문제 clean_up 을 한번만 실행한다.
+2. static flag 를 넣고 1초간 잠을 재우고 static flag 가 0일 때만 모든 ipcs 를 정리하고 아니라면 그냥 끝낸다.
+
+? 근데 다중프로세스끼리도 static 함수를 공유 하는건가? 아니다. 내가 한 sleep 이 우연치 않게 문제를 해결 해줬다.
+그럼 우연을 없애고 내가 제어를 할 수 있는 방법은 뭘까. 내가 맨 마지막인지 아닌지 를 확인한다. 
+```
+...
+	sleep(1);
+	struct shmid_ds ds;
+	shmctl(pd->mid, IPC_STAT, &ds);
+	if (ds.shm_nattch == 0) {
+		clear_ipcs(pd->mid, pd->sid, pd->qid);
+	}
+
+```
+이렇게 진짜 내가 마지막인지 확인을 하고 해제를 해주면 된다.
+---
+
+추가 할 것
+- 게임이 실행 중일때 진입 하는걸 막아야 할 까? - clear
+- lemipc 인자 형식이 아니라면 막아햐 한다. -clear;
+logic.c/check_player_nbs(t_playerData *player) 에서 game_state 도 확인한다.
+- ctrl + c 시그널을 넣어야 한다.
+
+---
+
+- 게임이 실행 중일때 진입 하는걸 막아야 할 까? -> 아이디어
+t_shm 에 game_state 생성 게임이 시작하기전에는 RECRUITMENT 상태 시작하고 나서는 START_GAME 으로 처리를 해줘서 게임중에 입장하는걸 막아줌
+- ctrl + c 시그널을 넣어야 한다.
+시그널을 등록후 ctrl + c 시 game_state를 game_end 로 설정 게임을 시작하기전에 확인을 한다.
+```
+//game_algorithm.c
+int	run_game_loop(t_playerData *pd)
+{
+	t_game_state	st;
+
+	srand(time(NULL) ^ (pd->team_no * 1000 + pd->team_mb_cnt));
+	init_game_state(&st);
+	while (1)
+	{
+		sig_is_come(pd);
+		if (pd->readonly->game_state == END_GAME){
+			terminate_player(pd);
+			return (0);
+		}
+```
+
+```
+//main.c
+void sig_is_come(t_playerData *player){
+	if (g_got_sigint == 1){
+		change_game_state_end(player);
+		terminate_player(player);
+		exit(0);
+	}
+}
+...
+  while (1) {
+	sig_is_come(&playerData);
+	if (playerData.readonly->game_state == END_GAME){
+		terminate_player(&playerData);
+		exit(0);
+	}
+```

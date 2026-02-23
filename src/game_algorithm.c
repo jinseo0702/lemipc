@@ -316,6 +316,11 @@ int	run_game_loop(t_playerData *pd)
 	init_game_state(&st);
 	while (1)
 	{
+		sig_is_come(pd);
+		if (pd->readonly->game_state == END_GAME){
+			terminate_player(pd);
+			return (0);
+		}
 		reset_loop_flags(&st);
 		run_swarm_intelligence(pd, &st);
 		if (lock_sem(pd->sid) == -1)
@@ -337,23 +342,17 @@ int	run_game_loop(t_playerData *pd)
 
 void	terminate_player(t_playerData *pd)
 {
-	int	total_player_nbs[MAXTEAM] = {0};
-	int	total = 0;
-	int cnt = MAXTEAM - 1;
-
-	total = return_total_player_team_nbs(pd, total_player_nbs);
-	if (total == -1)
-		return;
 	if (pd->readonly != NULL)
 		detach_board(pd->readonly);
 	if (pd->readwrite != NULL)
 		detach_board(pd->readwrite);
 	pd->readonly = NULL;
 	pd->readwrite = NULL;
-	for (int i = 0; i < MAXTEAM; i++) {
-		if (total_player_nbs[i] == 0)
-			cnt--;
-	}
-	if (cnt == 0)
+
+	sleep(1);
+	struct shmid_ds ds;
+	shmctl(pd->mid, IPC_STAT, &ds);
+	if (ds.shm_nattch == 0) {
 		clear_ipcs(pd->mid, pd->sid, pd->qid);
+	}
 }

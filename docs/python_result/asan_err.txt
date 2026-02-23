@@ -1,0 +1,2523 @@
+[*] Launching 3 teams x 5 players...
+[*] Total 15 players launched.
+[2J[*] Monitoring started (Ctrl+C to stop)
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[ERR team0-p0 PID=16699] AddressSanitizer:DEADLYSIGNAL
+[ERR team0-p0 PID=16699] =================================================================
+[ERR team0-p0 PID=16699] ==16699==ERROR: AddressSanitizer: SEGV on unknown address 0x7d0217818020 (pc 0x572df86f24db bp 0x7ffcec5e2690 sp 0x7ffcec5e2670 T0)
+[ERR team0-p0 PID=16699] ==16699==The signal is caused by a READ memory access.
+[H[Alive: 15/15]
+[H[Alive: 15/15]
+[ERR team0-p0 PID=16699]     #0 0x572df86f24db in return_total_player_team_nbs src/logic.c:107
+[ERR team0-p0 PID=16699]     #1 0x572df86f76b5 in terminate_player src/game_algorithm.c:344
+[ERR team0-p0 PID=16699]     #2 0x572df86f29db in main src/main.c:37
+[ERR team0-p0 PID=16699]     #3 0x7d0216a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team0-p0 PID=16699]     #4 0x7d0216a29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team0-p0 PID=16699]     #5 0x572df86f0564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team0-p0 PID=16699] 
+[ERR team0-p0 PID=16699] AddressSanitizer can not provide additional info.
+[ERR team0-p0 PID=16699] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team0-p0 PID=16699] ==16699==ABORTING
+[ERR team2-p4 PID=16727] AddressSanitizer:DEADLYSIGNAL
+[ERR team2-p4 PID=16727] =================================================================
+[ERR team2-p4 PID=16727] ==16727==ERROR: AddressSanitizer: SEGV on unknown address 0x7ff868e34020 (pc 0x5a3d485894db bp 0x7ffe5f043510 sp 0x7ffe5f0434f0 T0)
+[ERR team2-p4 PID=16727] ==16727==The signal is caused by a READ memory access.
+[H[Alive: 14/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[ERR team2-p4 PID=16727]     #0 0x5a3d485894db in return_total_player_team_nbs src/logic.c:107
+[ERR team2-p4 PID=16727]     #1 0x5a3d4858e6b5 in terminate_player src/game_algorithm.c:344
+[ERR team2-p4 PID=16727]     #2 0x5a3d485899db in main src/main.c:37
+[ERR team2-p4 PID=16727]     #3 0x7ff868029d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team2-p4 PID=16727]     #4 0x7ff868029e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team2-p4 PID=16727]     #5 0x5a3d48587564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team2-p4 PID=16727] 
+[ERR team2-p4 PID=16727] AddressSanitizer can not provide additional info.
+[ERR team2-p4 PID=16727] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team2-p4 PID=16727] ==16727==ABORTING
+[H[Alive: 13/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 13/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p3 PID=16725] AddressSanitizer:DEADLYSIGNAL
+[ERR team2-p3 PID=16725] =================================================================
+[ERR team2-p3 PID=16725] ==16725==ERROR: AddressSanitizer: SEGV on unknown address 0x7ca007849020 (pc 0x5950b75244db bp 0x7ffe335dae90 sp 0x7ffe335dae70 T0)
+[ERR team2-p3 PID=16725] ==16725==The signal is caused by a READ memory access.
+[H[Alive: 13/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p3 PID=16725]     #0 0x5950b75244db in return_total_player_team_nbs src/logic.c:107
+[ERR team2-p3 PID=16725]     #1 0x5950b75296b5 in terminate_player src/game_algorithm.c:344
+[ERR team2-p3 PID=16725]     #2 0x5950b75249db in main src/main.c:37
+[ERR team2-p3 PID=16725]     #3 0x7ca006a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team2-p3 PID=16725]     #4 0x7ca006a29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team2-p3 PID=16725]     #5 0x5950b7522564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team2-p3 PID=16725] 
+[ERR team2-p3 PID=16725] AddressSanitizer can not provide additional info.
+[ERR team2-p3 PID=16725] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team2-p3 PID=16725] ==16725==ABORTING
+[H[Alive: 12/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team1-p2 PID=16713] AddressSanitizer:DEADLYSIGNAL
+[ERR team1-p2 PID=16713] =================================================================
+[ERR team1-p2 PID=16713] ==16713==ERROR: AddressSanitizer: SEGV on unknown address 0x7b078da02020 (pc 0x582d27c664db bp 0x7fffcb9e9e40 sp 0x7fffcb9e9e20 T0)
+[ERR team1-p2 PID=16713] ==16713==The signal is caused by a READ memory access.
+[H[Alive: 12/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team1-p2 PID=16713]     #0 0x582d27c664db in return_total_player_team_nbs src/logic.c:107
+[ERR team1-p2 PID=16713]     #1 0x582d27c6b6b5 in terminate_player src/game_algorithm.c:344
+[ERR team1-p2 PID=16713]     #2 0x582d27c669db in main src/main.c:37
+[ERR team1-p2 PID=16713]     #3 0x7b078cc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team1-p2 PID=16713]     #4 0x7b078cc29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team1-p2 PID=16713]     #5 0x582d27c64564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team1-p2 PID=16713] 
+[ERR team1-p2 PID=16713] AddressSanitizer can not provide additional info.
+[ERR team1-p2 PID=16713] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team1-p2 PID=16713] ==16713==ABORTING
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p3 PID=16705] AddressSanitizer:DEADLYSIGNAL
+[ERR team0-p3 PID=16705] =================================================================
+[ERR team0-p3 PID=16705] ==16705==ERROR: AddressSanitizer: SEGV on unknown address 0x70d5f60d7020 (pc 0x594e785474db bp 0x7ffd90a3da80 sp 0x7ffd90a3da60 T0)
+[ERR team0-p3 PID=16705] ==16705==The signal is caused by a READ memory access.
+[H[Alive: 11/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p3 PID=16705]     #0 0x594e785474db in return_total_player_team_nbs src/logic.c:107
+[ERR team0-p3 PID=16705]     #1 0x594e7854c6b5 in terminate_player src/game_algorithm.c:344
+[ERR team0-p3 PID=16705]     #2 0x594e785479db in main src/main.c:37
+[ERR team0-p3 PID=16705]     #3 0x70d5f5e29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team0-p3 PID=16705]     #4 0x70d5f5e29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team0-p3 PID=16705]     #5 0x594e78545564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team0-p3 PID=16705] 
+[ERR team0-p3 PID=16705] AddressSanitizer can not provide additional info.
+[ERR team0-p3 PID=16705] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team0-p3 PID=16705] ==16705==ABORTING
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p2 PID=16723] AddressSanitizer:DEADLYSIGNAL
+[ERR team2-p2 PID=16723] =================================================================
+[ERR team2-p2 PID=16723] ==16723==ERROR: AddressSanitizer: SEGV on unknown address 0x703c378b3020 (pc 0x600fff02b4db bp 0x7ffdc1b6bbb0 sp 0x7ffdc1b6bb90 T0)
+[ERR team2-p2 PID=16723] ==16723==The signal is caused by a READ memory access.
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 10/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p2 PID=16723]     #0 0x600fff02b4db in return_total_player_team_nbs src/logic.c:107
+[ERR team2-p2 PID=16723]     #1 0x600fff0306b5 in terminate_player src/game_algorithm.c:344
+[ERR team2-p2 PID=16723]     #2 0x600fff02b9db in main src/main.c:37
+[ERR team2-p2 PID=16723]     #3 0x703c37629d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team2-p2 PID=16723]     #4 0x703c37629e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team2-p2 PID=16723]     #5 0x600fff029564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team2-p2 PID=16723] 
+[ERR team2-p2 PID=16723] AddressSanitizer can not provide additional info.
+[ERR team2-p2 PID=16723] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team2-p2 PID=16723] ==16723==ABORTING
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p4 PID=16707] AddressSanitizer:DEADLYSIGNAL
+[ERR team0-p4 PID=16707] =================================================================
+[ERR team0-p4 PID=16707] ==16707==ERROR: AddressSanitizer: SEGV on unknown address 0x740833660020 (pc 0x5c06087754db bp 0x7fff6798d9f0 sp 0x7fff6798d9d0 T0)
+[ERR team0-p4 PID=16707] ==16707==The signal is caused by a READ memory access.
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p4 PID=16707]     #0 0x5c06087754db in return_total_player_team_nbs src/logic.c:107
+[ERR team0-p4 PID=16707]     #1 0x5c060877a6b5 in terminate_player src/game_algorithm.c:344
+[ERR team0-p4 PID=16707]     #2 0x5c06087759db in main src/main.c:37
+[ERR team0-p4 PID=16707]     #3 0x740832829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team0-p4 PID=16707]     #4 0x740832829e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team0-p4 PID=16707]     #5 0x5c0608773564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team0-p4 PID=16707] 
+[H[Alive: 9/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p4 PID=16707] AddressSanitizer can not provide additional info.
+[ERR team0-p4 PID=16707] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team0-p4 PID=16707] ==16707==ABORTING
+[ERR team1-p3 PID=16715] AddressSanitizer:DEADLYSIGNAL
+[ERR team1-p3 PID=16715] =================================================================
+[ERR team1-p3 PID=16715] ==16715==ERROR: AddressSanitizer: SEGV on unknown address 0x7206742b0020 (pc 0x58818bbb84db bp 0x7fffa17f0fc0 sp 0x7fffa17f0fa0 T0)
+[ERR team1-p3 PID=16715] ==16715==The signal is caused by a READ memory access.
+[H[Alive: 8/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team1-p3 PID=16715]     #0 0x58818bbb84db in return_total_player_team_nbs src/logic.c:107
+[ERR team1-p3 PID=16715]     #1 0x58818bbbd6b5 in terminate_player src/game_algorithm.c:344
+[ERR team1-p3 PID=16715]     #2 0x58818bbb89db in main src/main.c:37
+[ERR team1-p3 PID=16715]     #3 0x720673429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team1-p3 PID=16715]     #4 0x720673429e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team1-p3 PID=16715]     #5 0x58818bbb6564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team1-p3 PID=16715] 
+[ERR team1-p3 PID=16715] AddressSanitizer can not provide additional info.
+[ERR team1-p3 PID=16715] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team1-p3 PID=16715] ==16715==ABORTING
+[H[Alive: 7/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p1 PID=16721] AddressSanitizer:DEADLYSIGNAL
+[ERR team2-p1 PID=16721] =================================================================
+[ERR team2-p1 PID=16721] ==16721==ERROR: AddressSanitizer: SEGV on unknown address 0x7e392cc00020 (pc 0x62dbf2f654db bp 0x7ffe677e3260 sp 0x7ffe677e3240 T0)
+[ERR team2-p1 PID=16721] ==16721==The signal is caused by a READ memory access.
+[H[Alive: 7/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p1 PID=16721]     #0 0x62dbf2f654db in return_total_player_team_nbs src/logic.c:107
+[ERR team2-p1 PID=16721]     #1 0x62dbf2f6a6b5 in terminate_player src/game_algorithm.c:344
+[ERR team2-p1 PID=16721]     #2 0x62dbf2f659db in main src/main.c:37
+[ERR team2-p1 PID=16721]     #3 0x7e392be29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team2-p1 PID=16721]     #4 0x7e392be29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team2-p1 PID=16721]     #5 0x62dbf2f63564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team2-p1 PID=16721] 
+[ERR team2-p1 PID=16721] AddressSanitizer can not provide additional info.
+[ERR team2-p1 PID=16721] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team2-p1 PID=16721] ==16721==ABORTING
+[H[Alive: 6/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 6/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 6/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p2 PID=16703] AddressSanitizer:DEADLYSIGNAL
+[ERR team0-p2 PID=16703] =================================================================
+[ERR team0-p2 PID=16703] ==16703==ERROR: AddressSanitizer: SEGV on unknown address 0x7cb26ec52020 (pc 0x5d4c3002c4db bp 0x7ffd44090220 sp 0x7ffd44090200 T0)
+[ERR team0-p2 PID=16703] ==16703==The signal is caused by a READ memory access.
+[H[Alive: 6/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p2 PID=16703]     #0 0x5d4c3002c4db in return_total_player_team_nbs src/logic.c:107
+[ERR team0-p2 PID=16703]     #1 0x5d4c300316b5 in terminate_player src/game_algorithm.c:344
+[ERR team0-p2 PID=16703]     #2 0x5d4c3002c9db in main src/main.c:37
+[ERR team0-p2 PID=16703]     #3 0x7cb26de29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team0-p2 PID=16703]     #4 0x7cb26de29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team0-p2 PID=16703]     #5 0x5d4c3002a564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team0-p2 PID=16703] 
+[ERR team0-p2 PID=16703] AddressSanitizer can not provide additional info.
+[ERR team0-p2 PID=16703] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team0-p2 PID=16703] ==16703==ABORTING
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p0 PID=16719] AddressSanitizer:DEADLYSIGNAL
+[ERR team2-p0 PID=16719] =================================================================
+[ERR team2-p0 PID=16719] ==16719==ERROR: AddressSanitizer: SEGV on unknown address 0x722ce8c9f020 (pc 0x5a08252754db bp 0x7ffc837a4ad0 sp 0x7ffc837a4ab0 T0)
+[ERR team2-p0 PID=16719] ==16719==The signal is caused by a READ memory access.
+[H[Alive: 5/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team2-p0 PID=16719]     #0 0x5a08252754db in return_total_player_team_nbs src/logic.c:107
+[ERR team2-p0 PID=16719]     #1 0x5a082527a6b5 in terminate_player src/game_algorithm.c:344
+[ERR team2-p0 PID=16719]     #2 0x5a08252759db in main src/main.c:37
+[ERR team2-p0 PID=16719]     #3 0x722ce8a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team2-p0 PID=16719]     #4 0x722ce8a29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team2-p0 PID=16719]     #5 0x5a0825273564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team2-p0 PID=16719] 
+[ERR team2-p0 PID=16719] AddressSanitizer can not provide additional info.
+[ERR team2-p0 PID=16719] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team2-p0 PID=16719] ==16719==ABORTING
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p1 PID=16701] AddressSanitizer:DEADLYSIGNAL
+[ERR team0-p1 PID=16701] =================================================================
+[ERR team0-p1 PID=16701] ==16701==ERROR: AddressSanitizer: SEGV on unknown address 0x7066ea629020 (pc 0x603d2d8634db bp 0x7fff486eadf0 sp 0x7fff486eadd0 T0)
+[ERR team0-p1 PID=16701] ==16701==The signal is caused by a READ memory access.
+[H[Alive: 4/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1
+[ERR team0-p1 PID=16701]     #0 0x603d2d8634db in return_total_player_team_nbs src/logic.c:107
+[ERR team0-p1 PID=16701]     #1 0x603d2d8686b5 in terminate_player src/game_algorithm.c:344
+[ERR team0-p1 PID=16701]     #2 0x603d2d8639db in main src/main.c:37
+[ERR team0-p1 PID=16701]     #3 0x7066e9829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+[ERR team0-p1 PID=16701]     #4 0x7066e9829e3f in __libc_start_main_impl ../csu/libc-start.c:392
+[ERR team0-p1 PID=16701]     #5 0x603d2d861564 in _start (/home/jinseo/jinseo/42_gs/lemipc/lemipc+0x2564)
+[ERR team0-p1 PID=16701] 
+[ERR team0-p1 PID=16701] AddressSanitizer can not provide additional info.
+[ERR team0-p1 PID=16701] SUMMARY: AddressSanitizer: SEGV src/logic.c:107 in return_total_player_team_nbs
+[ERR team0-p1 PID=16701] ==16701==ABORTING
+[ERR team1-p4 PID=16717] semop : lock failed: Invalid argument
+[ERR team1-p4 PID=16717] lock_sem: Invalid argument
+[ERR team1-p1 PID=16711] semop : unlock failed: Invalid argument
+[ERR team1-p1 PID=16711] unlock_sem: Invalid argument
+[ERR team1-p1 PID=16711] semop : lock failed: Invalid argument
+[ERR team1-p1 PID=16711] lock_sem: Invalid argument
+[ERR team1-p0 PID=16709] semop : lock failed: Invalid argument
+[ERR team1-p0 PID=16709] lock_sem: Invalid argument
+[H[Alive: 0/15]
+[DEAD] team0-p0 PID=16699 exited with code 1
+[DEAD] team0-p1 PID=16701 exited with code 1
+[DEAD] team0-p2 PID=16703 exited with code 1
+[DEAD] team0-p3 PID=16705 exited with code 1
+[DEAD] team0-p4 PID=16707 exited with code 1
+[DEAD] team1-p2 PID=16713 exited with code 1
+[DEAD] team1-p3 PID=16715 exited with code 1
+[DEAD] team2-p0 PID=16719 exited with code 1
+[DEAD] team2-p1 PID=16721 exited with code 1
+[DEAD] team2-p2 PID=16723 exited with code 1
+[DEAD] team2-p3 PID=16725 exited with code 1
+[DEAD] team2-p4 PID=16727 exited with code 1

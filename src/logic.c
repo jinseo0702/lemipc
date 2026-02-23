@@ -16,6 +16,7 @@ int first_step(t_playerData *playerData){
 	if (total_player_nbs == -1) return (-1);
 	int max_player_nbs = MAXTEAMNB * MAXTEAM;
 	if (total_player_nbs == max_player_nbs) {
+		if (change_game_state(playerData) != 2) return (-1);
 		t_myMsgbuf msgbuf;
 		msgbuf.mytype = START_GAME;
 		msgbuf.x = 0;
@@ -46,7 +47,7 @@ void	init_playerdatata(t_playerData *data, int team_no){
 int		check_player_nbs(t_playerData *player){
 	int out_flag = 0;
 	if (lock_sem(player->sid) == -1) { perror("lock_sem"); return 1; }
-	if (player->readwrite->team_nbs[player->team_no - 'A'] < MAXTEAMNB){
+	if (player->readwrite->team_nbs[player->team_no - 'A'] < MAXTEAMNB && player->readwrite->game_state == RECRUITMENT){
 		player->readwrite->team_nbs[player->team_no - 'A'] += 1;
 		player->readwrite->player_nbs++;
 		player->team_mb_cnt = player->readwrite->team_nbs[player->team_no - 'A'];
@@ -56,6 +57,20 @@ int		check_player_nbs(t_playerData *player){
 	}
 	if (unlock_sem(player->sid) == -1) { perror("unlock_sem"); return 1; }
 	return (out_flag);
+}
+
+int		change_game_state(t_playerData *player){
+	if (lock_sem(player->sid) == -1) { perror("lock_sem"); return 1; }
+	player->readwrite->game_state = START_GAME;
+	if (unlock_sem(player->sid) == -1) { perror("unlock_sem"); return 1; }
+	return 2;
+}
+
+int		change_game_state_end(t_playerData *player){
+	if (lock_sem(player->sid) == -1) { perror("lock_sem"); return 1; }
+	player->readwrite->game_state = END_GAME;
+	if (unlock_sem(player->sid) == -1) { perror("unlock_sem"); return 1; }
+	return 2;
 }
 
 void	make_rand_position(t_pos *pos){

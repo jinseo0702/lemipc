@@ -1,6 +1,7 @@
 #include "../include/logic.h"
 #include "../include/system.h"
 #include "../printf/libftprintf.h"
+#include "../libft/libft.h"
 #include <stdio.h>
 
 #define RESET   "\033[0m"
@@ -88,29 +89,35 @@ int view_board(void){
 void view_board_player(t_playerData *playerData){
 	ft_printf("\n=== Board State (Players: %d) ===\n", playerData->readonly->player_nbs);
 	for (int i = 0; i < HEIGHT; i++){
-	  for (int j = 0; j < WIDTH; j++){  
-		ft_printf("%s%c%s ", get_team_color(playerData->readonly->board[i][j] - 'A'), playerData->readonly->board[i][j], RESET);
-	  }
-	  ft_printf("\n");
+		for (int j = 0; j < WIDTH; j++){  
+			ft_printf("%s%c%s ", get_team_color(playerData->readonly->board[i][j] - 'A'), playerData->readonly->board[i][j], RESET);
+		}
+		ft_printf("\n");
 	}
 	ft_printf("team info:\n");
 	ft_printf("--------------------------------\n");
 	for (int i = 0; i < MAXTEAM; i++){
-	  ft_printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, playerData->readonly->team_nbs[i]);
+		ft_printf("%s%d -> %c%s team: %d players\n", get_team_color(i), i, i + 'A', RESET, playerData->readonly->team_nbs[i]);
 	}
 	ft_printf("\n");
-  }
+}
 
 int check_argument(int argc, const char *argv[], int *team_no){
 	if (argc != 2){
 		ft_fprintf(2, "Usage: %s <team_no>\n", argv[0]);
 		return (1);
 	}
-	*team_no = atoi(argv[1]);
-  if (*team_no < 0 || *team_no > MAXTEAM - 1) {
-    ft_fprintf(2, "Invalid team number: %d\n", *team_no);
-    return (1);
-  }
+	for (int i = 0 ; argv[1][i]; i++) {
+		if (ft_isdigit(argv[1][i]) == 0) {
+			ft_fprintf(2, "Invalid team number: %s\n", argv[1]);
+			return (1);
+		}
+	}
+	*team_no = ft_atoi(argv[1]);
+	if (*team_no < 0 || *team_no > MAXTEAM - 1) {
+		ft_fprintf(2, "Invalid team number: %d\n", *team_no);
+		return (1);
+	}
 	return (0);
 }
 

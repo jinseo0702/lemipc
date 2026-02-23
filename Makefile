@@ -1,5 +1,6 @@
 CC = gcc
 CFLAG = -g -Wall -Wextra -Werror -Iinclude -Iprintf -Ilibft
+# CFLAG = -fsanitize=address -g -Iinclude -Iprintf -Ilibft
 RM = rm -rf
 
 SRC = src/system.c \
@@ -34,10 +35,12 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_A) $(PRINTF_A)
 	@$(CC) -o $@ $^
+# @$(CC) -fsanitize=address -o $@ $^
 
 
 $(TESTSYSTEM): $(TESTOBJ) $(LIBFT_A) $(PRINTF_A)
 	@$(CC) -o $@ $^
+# @$(CC) -fsanitize=address -o $@ $^
 
 $(LIBFT_A):
 	@make -C libft

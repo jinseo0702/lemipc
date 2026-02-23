@@ -2,48 +2,60 @@ import subprocess
 import time
 import sys
 import signal
+import threading
 
-TEAM = 3
-PLAYER_PER_TEAM = 5
+TEAM = 2
+PLAYER_PER_TEAM = 2
 GAME_EXE = "./lemipc"
 TOOL_EXE = "./testSystem"
 
-running_process = []
+running_process = []  # list of (proc, label)
 
 def clean_ipc_resources():
 	subprocess.run([TOOL_EXE, "test_sem_clear_ipcs"])
 
+def stream_stderr(proc, label):
+	for line in proc.stderr:
+		print(f"[ERR {label} PID={proc.pid}] {line.decode().rstrip()}", flush=True)
+
 def launch_processes():
 	print(f"[*] Launching {TEAM} teams x {PLAYER_PER_TEAM} players...")
 	for team_id in range(TEAM):
-		for _ in range(PLAYER_PER_TEAM):
-			proc = subprocess.Popen([GAME_EXE, str(team_id)])
-			running_process.append(proc)
+		for player_id in range(PLAYER_PER_TEAM):
+			proc = subprocess.Popen([GAME_EXE, str(team_id)], stderr=subprocess.PIPE)
+			label = f"team{team_id}-p{player_id}"
+			t = threading.Thread(target=stream_stderr, args=(proc, label), daemon=True)
+			t.start()
+			running_process.append((proc, label))
 			time.sleep(0.01)
 	print(f"[*] Total {len(running_process)} players launched.")
 
 def monitor_loop():
-    print("\033[2J", end="")      # 시작 시 1회만 전체 clear
+    print("\033[2J", end="")
     print("[*] Monitoring started (Ctrl+C to stop)")
     while True:
-        alive = sum(1 for p in running_process if p.poll() is None)
-        print("\033[H", end="")    # 매 프레임 커서만 맨 위로
+        alive = sum(1 for p, _ in running_process if p.poll() is None)
+        print("\033[H", end="")
         print(f"[Alive: {alive}/{len(running_process)}]")
-        time.sleep(0.01) 
+        for p, label in running_process:
+            ret = p.poll()
+            if ret is not None and ret != 0:
+                print(f"[DEAD] {label} PID={p.pid} exited with code {ret}")
+        time.sleep(0.01)
         if alive == 0:
-            break;
+            break
         time.sleep(0.1)
 
 def cleanup_and_exit(sig=None, frame=None):
 	print("\n\n[!] Stopping simulation...")
-	for p in running_process:
+	for p, _ in running_process:
 		if p.poll() is None:
 			p.terminate()
 	time.sleep(0.3)
-	for p in running_process:
+	for p, _ in running_process:
 		if p.poll() is None:
 			p.kill()
-	for p in running_process:
+	for p, _ in running_process:
 		p.wait()
 	print("[*] All processes cleaned up.")
 	clean_ipc_resources()

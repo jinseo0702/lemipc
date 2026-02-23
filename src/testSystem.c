@@ -14,6 +14,8 @@ int test_sem(void);
 int test_sem_clear_ipcs(void);
 int test_msq_player(void);
 void view(void);
+volatile sig_atomic_t g_got_sigint = 0;
+void sig_is_come(t_playerData *player) { (void)player; }
 
 int test_init_and_clear(void){
   printf("------------------test_init_and_clear------------------\n");

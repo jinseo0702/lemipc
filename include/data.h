@@ -1,40 +1,42 @@
 #ifndef DATA_H
 #define DATA_H
 
-#define WIDTH 5
-#define HEIGHT 5
-#define MAXTEAM 3
-#define MAXTEAMNB 5
+#define WIDTH 10
+#define HEIGHT 10
+#define MAXTEAM 2
+#define MAXTEAMNB 2
 #define PATHNAME "/tmp"
 #define PROJID 'A'
 
-  typedef enum e_kind {
+	typedef enum e_kind {
 		BROADCAST = 10,
 		INIT_PLAYER = 11,
-    START_GAME,
-    DEATH,
-    END_GAME,
-  } e_kind;
+		RECRUITMENT,
+		START_GAME,
+		DEATH,
+		END_GAME,
+	}	e_kind;
 
-  typedef enum e_team_no {
+	typedef enum e_team_no {
 		NONE = 0,
-    TEAM_1 = 'A',
-    TEAM_2 = 'B',
-    TEAM_3 = 'C',
-    TEAM_4 = 'D',
-    TEAM_5 = 'E',
+		TEAM_1 = 'A',
+		TEAM_2 = 'B',
+		TEAM_3 = 'C',
+		TEAM_4 = 'D',
+		TEAM_5 = 'E',
 		TEAM_6 = 'F',
 		TEAM_7 = 'G',
 		TEAM_8 = 'H',
 		TEAM_9 = 'I',
-  } e_team_no;
+	}	e_team_no;
 
-  typedef enum e_msg_order {
-    KILL_PLAYER = 0,
-    DO_NOTHING = 1,
-  } e_msg_order;
+	typedef enum e_msg_order {
+		KILL_PLAYER = 0,
+		DO_NOTHING = 1,
+	}	e_msg_order;
 
 typedef struct s_shm {
+	int game_state;
 	int player_nbs;
 	char board[HEIGHT][WIDTH];
 	int team_nbs[MAXTEAM];

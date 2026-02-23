@@ -5,6 +5,7 @@
 int init_shm_and_pos_make(t_playerData *playerData){
   if (attach_shm(playerData) == -1) return (-1);
   if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return -1; }
+  playerData->readwrite->game_state = RECRUITMENT;
   ft_memset(playerData->readwrite->board, 48, sizeof(playerData->readwrite->board));
   ft_memset(playerData->readwrite->team_nbs, 0, sizeof(playerData->readwrite->team_nbs));
   if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return -1; }
