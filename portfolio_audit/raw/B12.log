@@ -1,0 +1,24 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'create' '13' '1' '1' '0'
+returncode=0
+stdout:
+{"created":true,"mid":49,"sid":43,"qid":43}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '1'
+pid=54
+pid=54 returncode=1
+pid=54 stderr:
+Team 1 is full
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":true,"sem":true,"msg":true,"mid":49,"sid":43,"qid":43,"semval":1,"nattch":0,"qnum":0,"state":13,"players":1,"teams":[1,0],"cells":{"A":0,"B":0,"empty":100,"other":0},"board":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+pid=54 returncode=1
+pid=54 stderr:
+Team 1 is full
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":true,"sem":true,"msg":true}}

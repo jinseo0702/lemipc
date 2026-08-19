@@ -1,0 +1,361 @@
+{
+  "commit": "108c4fc68c90e41723fe2ce35d6cb4b443524ed2",
+  "profile": "PROFILE C (lemipc), resolving the supplied PROFILE B label conflict",
+  "generated_at": "2026-08-19T19:07:34+0900",
+  "totals": {
+    "PASS": 16,
+    "PARTIAL": 4,
+    "FAIL": 2,
+    "CRASH": 1,
+    "HARNESS_ERROR": 0
+  },
+  "tests": [
+    {
+      "id": "B01",
+      "name": "build artifacts are current",
+      "classification": "PASS",
+      "expected": "make reports production target current and all four required binaries exist",
+      "actual": "make -q exit=0, binaries=[True, True, True, True]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B01.log"
+    },
+    {
+      "id": "B02",
+      "name": "missing argument is rejected",
+      "classification": "PASS",
+      "expected": "nonzero exit and diagnostic containing 'Usage:'; no IPC created",
+      "actual": "exit=1, output='Usage: /home/jinseo/duo/lemipc/lemipc <team_no>', ipc={'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B02.log"
+    },
+    {
+      "id": "B03",
+      "name": "nondigit team is rejected",
+      "classification": "PASS",
+      "expected": "nonzero exit and diagnostic containing 'Invalid team number'; no IPC created",
+      "actual": "exit=1, output='Invalid team number: abc', ipc={'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B03.log"
+    },
+    {
+      "id": "B04",
+      "name": "out-of-range team is rejected",
+      "classification": "PASS",
+      "expected": "nonzero exit and diagnostic containing 'Invalid team number'; no IPC created",
+      "actual": "exit=1, output='Invalid team number: 2', ipc={'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B04.log"
+    },
+    {
+      "id": "B05",
+      "name": "empty team string",
+      "classification": "FAIL",
+      "expected": "empty string is rejected as a non-team argument",
+      "actual": "accepted=True, snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 43, 'sid': 37, 'qid': 37, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000A0000000000000000000000000000000000000000000000000000000000000000000000000000000'}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B05.log"
+    },
+    {
+      "id": "B06",
+      "name": "viewmode prefix variant",
+      "classification": "FAIL",
+      "expected": "only the exact documented token 'viewmode' enters viewer mode",
+      "actual": "prefix_variant_entered_viewer=True, exit=-2",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B06.log"
+    },
+    {
+      "id": "B07",
+      "name": "single-player initialization",
+      "classification": "PASS",
+      "expected": "one A player produces coherent recruitment state, consumes one of four positions, and cleans up after SIGINT",
+      "actual": "snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 44, 'sid': 38, 'qid': 38, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '000000000000000000000000000000000000000000000000000A000000000000000000000000000000000000000000000000'}, exits=[0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B07.log"
+    },
+    {
+      "id": "B08",
+      "name": "simultaneous first-player race",
+      "classification": "PASS",
+      "expected": "concurrent creators converge on one coherent IPC set and unique cells",
+      "actual": "snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 45, 'sid': 39, 'qid': 39, 'semval': 1, 'nattch': 4, 'qnum': 2, 'state': 12, 'players': 2, 'teams': [1, 1], 'cells': {'A': 1, 'B': 1, 'empty': 98, 'other': 0}, 'board': '00A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000B'}, exits=[0, 0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B08.log"
+    },
+    {
+      "id": "B09",
+      "name": "per-team capacity",
+      "classification": "PASS",
+      "expected": "third A player is rejected without count/board mutation",
+      "actual": "third_exit=1, third_stderr='Team 0 is full', snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 46, 'sid': 40, 'qid': 40, 'semval': 1, 'nattch': 4, 'qnum': 2, 'state': 12, 'players': 2, 'teams': [2, 0], 'cells': {'A': 2, 'B': 0, 'empty': 98, 'other': 0}, 'board': '000A000000000000000000000000000000000000000000000000000000000000000000A00000000000000000000000000000'}, survivors=[0, 0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B09.log"
+    },
+    {
+      "id": "B10",
+      "name": "three-player recruitment barrier",
+      "classification": "PASS",
+      "expected": "three players remain blocked in recruitment with no early start",
+      "actual": "snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 47, 'sid': 41, 'qid': 41, 'semval': 1, 'nattch': 6, 'qnum': 1, 'state': 12, 'players': 3, 'teams': [2, 1], 'cells': {'A': 2, 'B': 1, 'empty': 97, 'other': 0}, 'board': 'B0A000000000000000000000000000000000000000000000000000000000000000000000000000000000000A000000000000'}, alive=[True, True, True], exits=[0, 0, 0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B10.log"
+    },
+    {
+      "id": "B11",
+      "name": "four-player start barrier",
+      "classification": "PASS",
+      "expected": "fourth valid player changes state to START_GAME with coherent counts/cells",
+      "actual": "snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 48, 'sid': 42, 'qid': 42, 'semval': 1, 'nattch': 8, 'qnum': 0, 'state': 13, 'players': 4, 'teams': [2, 2], 'cells': {'A': 2, 'B': 2, 'empty': 96, 'other': 0}, 'board': 'B000000000000000000000A0000B00000000A000000000000000000000000000000000000000000000000000000000000000'}, exits=[0, 0, 0, 0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B11.log"
+    },
+    {
+      "id": "B12",
+      "name": "post-start admission gate",
+      "classification": "PASS",
+      "expected": "admission during START_GAME is rejected without shared counter mutation",
+      "actual": "exit=1, stderr='Team 1 is full', snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 49, 'sid': 43, 'qid': 43, 'semval': 1, 'nattch': 0, 'qnum': 0, 'state': 13, 'players': 1, 'teams': [1, 0], 'cells': {'A': 0, 'B': 0, 'empty': 100, 'other': 0}, 'board': '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B12.log"
+    },
+    {
+      "id": "B13",
+      "name": "viewer lifecycle",
+      "classification": "CRASH",
+      "expected": "viewer exits after each last player removes SHM; no graceful run leaves IPC",
+      "actual": "8 iterations: viewer/IPC stuck after 1; rendered_all=True; observations=[{'iteration': 1, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 50, 'sid': 44, 'qid': 44, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 2, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 51, 'sid': 45, 'qid': 45, 'semval': 1, 'nattch': 3, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000000000000000000000000000000000000000000000000000000000A0000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 3, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 52, 'sid': 46, 'qid': 46, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '0000000000000000000000000000000A00000000000000000000000000000000000000000000000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 4, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 53, 'sid': 47, 'qid': 47, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '0000A00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 5, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 54, 'sid': 48, 'qid': 48, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000A0'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 6, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 55, 'sid': 49, 'qid': 49, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '0000000000000000000A00000000000000000000000000000000000000000000000000000000000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 7, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 56, 'sid': 50, 'qid': 50, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000A00000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}, 'viewer_stuck': False, 'rendered': True, 'viewer_exit': 0}, {'iteration': 8, 'player_snapshot': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 57, 'sid': 51, 'qid': 51, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000000000000'}, 'player_exits': [0], 'after_player_exit': {'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 57, 'sid': 51, 'qid': 51, 'semval': 1, 'nattch': 0, 'qnum': 3, 'state': 15, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000000000000'}, 'viewer_stuck': True, 'rendered': True, 'viewer_exit': None}]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B13.log"
+    },
+    {
+      "id": "B14",
+      "name": "SIGINT end propagation",
+      "classification": "PASS",
+      "expected": "SIGINT to one active player propagates END_GAME, all four exit 0, all IPC disappears",
+      "actual": "before={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 58, 'sid': 52, 'qid': 52, 'semval': 1, 'nattch': 8, 'qnum': 0, 'state': 13, 'players': 4, 'teams': [2, 2], 'cells': {'A': 2, 'B': 2, 'empty': 96, 'other': 0}, 'board': '0000000000000000000000000000000000000000000B0A000000000000000A00000000000000000000000000000000000B00'}, exits=[0, 0, 0, 0], after={'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B14.log"
+    },
+    {
+      "id": "B15",
+      "name": "repeated graceful cleanup",
+      "classification": "PASS",
+      "expected": "three sequential graceful single-player runs start from one player and leave no IPC",
+      "actual": [
+        {
+          "iteration": 1,
+          "snapshot": {
+            "key": 1093337089,
+            "shm": true,
+            "sem": true,
+            "msg": true,
+            "mid": 59,
+            "sid": 53,
+            "qid": 53,
+            "semval": 1,
+            "nattch": 2,
+            "qnum": 3,
+            "state": 12,
+            "players": 1,
+            "teams": [
+              1,
+              0
+            ],
+            "cells": {
+              "A": 1,
+              "B": 0,
+              "empty": 99,
+              "other": 0
+            },
+            "board": "00000000000000000000000000A0000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "exits": [
+            0
+          ],
+          "after": {
+            "key": 1093337089,
+            "shm": false,
+            "sem": false,
+            "msg": false,
+            "mid": -1,
+            "sid": -1,
+            "qid": -1,
+            "semval": -1,
+            "nattch": 0,
+            "qnum": 0
+          }
+        },
+        {
+          "iteration": 2,
+          "snapshot": {
+            "key": 1093337089,
+            "shm": true,
+            "sem": true,
+            "msg": true,
+            "mid": 60,
+            "sid": 54,
+            "qid": 54,
+            "semval": 1,
+            "nattch": 2,
+            "qnum": 3,
+            "state": 12,
+            "players": 1,
+            "teams": [
+              1,
+              0
+            ],
+            "cells": {
+              "A": 1,
+              "B": 0,
+              "empty": 99,
+              "other": 0
+            },
+            "board": "0000000000000000000000000000000000000000000000000A00000000000000000000000000000000000000000000000000"
+          },
+          "exits": [
+            0
+          ],
+          "after": {
+            "key": 1093337089,
+            "shm": false,
+            "sem": false,
+            "msg": false,
+            "mid": -1,
+            "sid": -1,
+            "qid": -1,
+            "semval": -1,
+            "nattch": 0,
+            "qnum": 0
+          }
+        },
+        {
+          "iteration": 3,
+          "snapshot": {
+            "key": 1093337089,
+            "shm": true,
+            "sem": true,
+            "msg": true,
+            "mid": 61,
+            "sid": 55,
+            "qid": 55,
+            "semval": 1,
+            "nattch": 2,
+            "qnum": 3,
+            "state": 12,
+            "players": 1,
+            "teams": [
+              1,
+              0
+            ],
+            "cells": {
+              "A": 1,
+              "B": 0,
+              "empty": 99,
+              "other": 0
+            },
+            "board": "00000000000000000000000000000A0000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "exits": [
+            0
+          ],
+          "after": {
+            "key": 1093337089,
+            "shm": false,
+            "sem": false,
+            "msg": false,
+            "mid": -1,
+            "sid": -1,
+            "qid": -1,
+            "semval": -1,
+            "nattch": 0,
+            "qnum": 0
+          }
+        }
+      ],
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B15.log"
+    },
+    {
+      "id": "B16",
+      "name": "SEM_UNDO lock-owner recovery",
+      "classification": "PASS",
+      "expected": "killing the lock owner restores semaphore value from 0 to 1 via SEM_UNDO",
+      "actual": "locked={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 62, 'sid': 56, 'qid': 56, 'semval': 0, 'nattch': 0, 'qnum': 0, 'state': 12, 'players': 0, 'teams': [0, 0], 'cells': {'A': 0, 'B': 0, 'empty': 100, 'other': 0}, 'board': '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}, holder_exit=-9, recovered={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 62, 'sid': 56, 'qid': 56, 'semval': 1, 'nattch': 0, 'qnum': 0, 'state': 12, 'players': 0, 'teams': [0, 0], 'cells': {'A': 0, 'B': 0, 'empty': 100, 'other': 0}, 'board': '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B16.log"
+    },
+    {
+      "id": "B17",
+      "name": "active-player SIGKILL",
+      "classification": "PARTIAL",
+      "expected": "measure whether SIGKILL preserves semaphore progress but removes/reconciles logical player state and IPC",
+      "actual": "before={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 63, 'sid': 57, 'qid': 57, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}, exit=-9, after={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 63, 'sid': 57, 'qid': 57, 'semval': 1, 'nattch': 0, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}; IPC and ghost player remain=True",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B17.log"
+    },
+    {
+      "id": "B18",
+      "name": "active-player SIGTERM",
+      "classification": "PARTIAL",
+      "expected": "SIGTERM should not leave an unrecoverable logical player/IPC state",
+      "actual": "before={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32768, 'sid': 58, 'qid': 58, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}, exit=-15, after={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32768, 'sid': 58, 'qid': 58, 'semval': 1, 'nattch': 0, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '00000000000A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'}; IPC and ghost player remain=True",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B18.log"
+    },
+    {
+      "id": "B19",
+      "name": "restart after abnormal exit",
+      "classification": "PARTIAL",
+      "expected": "a new run should detect or reconcile stale ownership after abnormal exit",
+      "actual": "before={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32769, 'sid': 59, 'qid': 59, 'semval': 1, 'nattch': 2, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '000000000000000000000000000000000000000000000000000000000000000000000000000000A000000000000000000000'}, stale={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32769, 'sid': 59, 'qid': 59, 'semval': 1, 'nattch': 0, 'qnum': 3, 'state': 12, 'players': 1, 'teams': [1, 0], 'cells': {'A': 1, 'B': 0, 'empty': 99, 'other': 0}, 'board': '000000000000000000000000000000000000000000000000000000000000000000000000000000A000000000000000000000'}, joined={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32769, 'sid': 59, 'qid': 59, 'semval': 1, 'nattch': 2, 'qnum': 2, 'state': 12, 'players': 2, 'teams': [2, 0], 'cells': {'A': 2, 'B': 0, 'empty': 98, 'other': 0}, 'board': '000000000000000000000000000000000000000000000000000000000000000000000000000000A000000000000000000A00'}, live_processes=1, exits=[0]",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B19.log"
+    },
+    {
+      "id": "B20",
+      "name": "algorithm deterministic probes",
+      "classification": "PASS",
+      "expected": "nine deterministic direct probes match distance, greedy, random-step, collision, surrounded, death, and fallback rules",
+      "actual": {
+        "distance": 0,
+        "greedy_y_tie": 0,
+        "greedy_x": 0,
+        "collision": 0,
+        "random_step": 0,
+        "surrounded_horizontal": 0,
+        "surrounded_mixed": 0,
+        "death_update": 0,
+        "out_of_radius": 0
+      },
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B20.log"
+    },
+    {
+      "id": "B21",
+      "name": "team message kind semantics",
+      "classification": "PARTIAL",
+      "expected": "DEATH and chase/BROADCAST messages have distinct receive-side semantics",
+      "actual": "probe={'kind': 14, 'track': 1, 'target': [5, 6]}; DEATH was converted into a chase target=True",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B21.log"
+    },
+    {
+      "id": "B22",
+      "name": "global semaphore stress",
+      "classification": "PASS",
+      "expected": "five helper processes converge on exactly 1000 under the global semaphore and leave it unlocked",
+      "actual": "exits=[0, 0, 0, 0, 0], snapshot={'key': 1093337089, 'shm': True, 'sem': True, 'msg': True, 'mid': 32770, 'sid': 60, 'qid': 60, 'semval': 1, 'nattch': 0, 'qnum': 0, 'state': 0, 'players': 1000, 'teams': [0, 0], 'cells': {'A': 0, 'B': 0, 'empty': 0, 'other': 100}, 'board': '\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B22.log"
+    },
+    {
+      "id": "B23",
+      "name": "message queue wrapper round trip",
+      "classification": "PASS",
+      "expected": "forked sender/receiver transfers the complete typed message payload",
+      "actual": "exit=0, output=\"------------------test_msq_player------------------\\nIt's fist player is send msg\\n------------------test_msq_player------------------\\nexit code=0\\nIt's second player is run\\nmsgbug value is mytype = 10 x = 0 y = 1 kind = 13 team_no = 0 msg_order = 1\", snapshot={'key': 1093337089, 'shm': False, 'sem': False, 'msg': False, 'mid': -1, 'sid': -1, 'qid': -1, 'semval': -1, 'nattch': 0, 'qnum': 0}",
+      "evidence_type": "VERIFIED FROM RUNTIME TEST",
+      "raw": "portfolio_audit/raw/B23.log"
+    }
+  ]
+}

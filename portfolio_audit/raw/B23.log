@@ -1,0 +1,21 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/testSystem' 'test_msq_player'
+returncode=0
+stdout:
+------------------test_msq_player------------------
+It's fist player is send msg
+------------------test_msq_player------------------
+exit code=0
+It's second player is run
+msgbug value is mytype = 10 x = 0 y = 1 kind = 13 team_no = 0 msg_order = 1
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}

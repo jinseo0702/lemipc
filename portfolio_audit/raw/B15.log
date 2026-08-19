@@ -1,0 +1,40 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=117
+reached iteration 1 admission
+{"board": "00000000000000000000000000A0000000000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 59, "msg": true, "nattch": 2, "players": 1, "qid": 53, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 53, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=117
+pid=117 returncode=0
+reached all IPC absent
+{"key": 1093337089, "mid": -1, "msg": false, "nattch": 0, "qid": -1, "qnum": 0, "sem": false, "semval": -1, "shm": false, "sid": -1}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=122
+reached iteration 2 admission
+{"board": "0000000000000000000000000000000000000000000000000A00000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 60, "msg": true, "nattch": 2, "players": 1, "qid": 54, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 54, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=122
+pid=122 returncode=0
+reached all IPC absent
+{"key": 1093337089, "mid": -1, "msg": false, "nattch": 0, "qid": -1, "qnum": 0, "sem": false, "semval": -1, "shm": false, "sid": -1}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=127
+reached iteration 3 admission
+{"board": "00000000000000000000000000000A0000000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 61, "msg": true, "nattch": 2, "players": 1, "qid": 55, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 55, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=127
+pid=127 returncode=0
+reached all IPC absent
+{"key": 1093337089, "mid": -1, "msg": false, "nattch": 0, "qid": -1, "qnum": 0, "sem": false, "semval": -1, "shm": false, "sid": -1}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}

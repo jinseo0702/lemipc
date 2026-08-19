@@ -1,0 +1,184 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=58
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=59
+reached viewer iteration 1 player
+{"board": "00000000000000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 50, "msg": true, "nattch": 2, "players": 1, "qid": 44, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 44, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=59
+pid=59 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=58 returncode=0
+pid=59 returncode=0
+pid=58 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=64
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=65
+reached viewer iteration 2 player
+{"board": "00000000000000000000000000000000000000000000000000000000000000000000000000A0000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 51, "msg": true, "nattch": 3, "players": 1, "qid": 45, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 45, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=65
+pid=65 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=64 returncode=0
+pid=65 returncode=0
+pid=64 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=71
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=72
+reached viewer iteration 3 player
+{"board": "0000000000000000000000000000000A00000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 52, "msg": true, "nattch": 2, "players": 1, "qid": 46, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 46, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=72
+pid=72 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=71 returncode=0
+pid=72 returncode=0
+pid=71 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=77
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=78
+reached viewer iteration 4 player
+{"board": "0000A00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 53, "msg": true, "nattch": 2, "players": 1, "qid": 47, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 47, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=78
+pid=78 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=77 returncode=0
+pid=78 returncode=0
+pid=77 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=83
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=84
+reached viewer iteration 5 player
+{"board": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000A0", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 54, "msg": true, "nattch": 2, "players": 1, "qid": 48, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 48, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=84
+pid=84 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=83 returncode=0
+pid=84 returncode=0
+pid=83 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=90
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=91
+reached viewer iteration 6 player
+{"board": "0000000000000000000A00000000000000000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 55, "msg": true, "nattch": 2, "players": 1, "qid": 49, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 49, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=91
+pid=91 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=90 returncode=0
+pid=91 returncode=0
+pid=90 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=97
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=98
+reached viewer iteration 7 player
+{"board": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000A00000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 56, "msg": true, "nattch": 2, "players": 1, "qid": 50, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 50, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=98
+pid=98 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}
+pid=97 returncode=0
+pid=98 returncode=0
+pid=97 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' 'viewmode'
+pid=103
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=104
+reached viewer iteration 8 player
+{"board": "00000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 57, "msg": true, "nattch": 2, "players": 1, "qid": 51, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 51, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=104
+pid=104 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":true,"sem":true,"msg":true,"mid":57,"sid":51,"qid":51,"semval":1,"nattch":0,"qnum":3,"state":15,"players":1,"teams":[1,0],"cells":{"A":1,"B":0,"empty":99,"other":0},"board":"00000000000000000000000000000000000000000000000000000A0000000000000000000000000000000000000000000000"}
+pid=104 returncode=0
+force SIGKILL -> pid=103
+pid=103 returncode=-9
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":true,"sem":true,"msg":true}}

@@ -1,0 +1,164 @@
+{
+  "method": "predicate-level mutation validation",
+  "results": [
+    {
+      "id": "HV01",
+      "name": "wrong global count",
+      "accepts_valid": true,
+      "rejects_invalid": true,
+      "classification": "PASS",
+      "valid": {
+        "players": 4,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 2,
+          "empty": 96,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 1
+      },
+      "synthetic_wrong": {
+        "players": 5,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 2,
+          "empty": 96,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 1
+      }
+    },
+    {
+      "id": "HV02",
+      "name": "missing board occupant",
+      "accepts_valid": true,
+      "rejects_invalid": true,
+      "classification": "PASS",
+      "valid": {
+        "players": 4,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 2,
+          "empty": 96,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 1
+      },
+      "synthetic_wrong": {
+        "players": 4,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 1,
+          "empty": 97,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 1
+      }
+    },
+    {
+      "id": "HV03",
+      "name": "leftover shared memory",
+      "accepts_valid": true,
+      "rejects_invalid": true,
+      "classification": "PASS",
+      "valid": {
+        "shm": false,
+        "sem": false,
+        "msg": false
+      },
+      "synthetic_wrong": {
+        "shm": true,
+        "sem": false,
+        "msg": false
+      }
+    },
+    {
+      "id": "HV04",
+      "name": "semaphore remains locked",
+      "accepts_valid": true,
+      "rejects_invalid": true,
+      "classification": "PASS",
+      "valid": {
+        "players": 4,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 2,
+          "empty": 96,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 1
+      },
+      "synthetic_wrong": {
+        "players": 4,
+        "teams": [
+          2,
+          2
+        ],
+        "cells": {
+          "A": 2,
+          "B": 2,
+          "empty": 96,
+          "other": 0
+        },
+        "shm": true,
+        "sem": true,
+        "msg": true,
+        "semval": 0
+      }
+    },
+    {
+      "id": "HV05",
+      "name": "deadline exceeded",
+      "accepts_valid": true,
+      "rejects_invalid": true,
+      "classification": "PASS",
+      "valid": {
+        "completed": true,
+        "elapsed": 0.8,
+        "deadline": 1.0
+      },
+      "synthetic_wrong": {
+        "completed": false,
+        "elapsed": 1.5,
+        "deadline": 1.0
+      }
+    }
+  ],
+  "pass": 5,
+  "fail": 0
+}

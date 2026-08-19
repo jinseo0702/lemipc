@@ -1,0 +1,8 @@
+$ '/home/jinseo/duo/lemipc/lemipc' '2'
+returncode=1
+stderr:
+Invalid team number: 2
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}

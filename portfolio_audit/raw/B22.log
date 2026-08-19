@@ -1,0 +1,52 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/testSystem' 'test_sem'
+pid=167
+SPAWN '/home/jinseo/duo/lemipc/testSystem' 'test_sem'
+pid=168
+SPAWN '/home/jinseo/duo/lemipc/testSystem' 'test_sem'
+pid=169
+SPAWN '/home/jinseo/duo/lemipc/testSystem' 'test_sem'
+pid=170
+SPAWN '/home/jinseo/duo/lemipc/testSystem' 'test_sem'
+pid=171
+pid=167 returncode=0
+pid=167 stdout:
+pid 167 ptr->player_nbs is 1000
+pid=168 returncode=0
+pid=168 stdout:
+pid 168 ptr->player_nbs is 1000
+pid=169 returncode=0
+pid=169 stdout:
+pid 169 ptr->player_nbs is 1000
+pid=170 returncode=0
+pid=170 stdout:
+pid 170 ptr->player_nbs is 1000
+pid=171 returncode=0
+pid=171 stdout:
+pid 171 ptr->player_nbs is 1000
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":true,"sem":true,"msg":true,"mid":32770,"sid":60,"qid":60,"semval":1,"nattch":0,"qnum":0,"state":0,"players":1000,"teams":[0,0],"cells":{"A":0,"B":0,"empty":0,"other":100},"board":"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"}
+pid=167 returncode=0
+pid=167 stdout:
+pid 167 ptr->player_nbs is 1000
+pid=168 returncode=0
+pid=168 stdout:
+pid 168 ptr->player_nbs is 1000
+pid=169 returncode=0
+pid=169 stdout:
+pid 169 ptr->player_nbs is 1000
+pid=170 returncode=0
+pid=170 stdout:
+pid 170 ptr->player_nbs is 1000
+pid=171 returncode=0
+pid=171 stdout:
+pid 171 ptr->player_nbs is 1000
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":true,"sem":true,"msg":true}}

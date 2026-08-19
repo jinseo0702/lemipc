@@ -1,0 +1,29 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=45
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=46
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '1'
+pid=47
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '1'
+pid=48
+reached four-player START_GAME
+{"board": "B000000000000000000000A0000B00000000A000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 2, "B": 2, "empty": 96, "other": 0}, "key": 1093337089, "mid": 48, "msg": true, "nattch": 8, "players": 4, "qid": 42, "qnum": 0, "sem": true, "semval": 1, "shm": true, "sid": 42, "state": 13, "teams": [2, 2]}
+signal SIGINT -> pid=45
+pid=45 returncode=0
+pid=46 returncode=0
+pid=47 returncode=0
+pid=48 returncode=0
+reached all IPC absent
+{"key": 1093337089, "mid": -1, "msg": false, "nattch": 0, "qid": -1, "qnum": 0, "sem": false, "semval": -1, "shm": false, "sid": -1}
+pid=45 returncode=0
+pid=46 returncode=0
+pid=47 returncode=0
+pid=48 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}

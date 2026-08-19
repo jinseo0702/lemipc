@@ -1,0 +1,18 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'distance'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'greedy_y_tie'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'greedy_x'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'collision'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'random_step'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'surrounded_horizontal'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'surrounded_mixed'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'death_update'
+returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/algorithm_probe' 'out_of_radius'
+returncode=0

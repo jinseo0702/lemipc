@@ -1,0 +1,23 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'create' '12' '0' '0' '0'
+returncode=0
+stdout:
+{"created":true,"mid":62,"sid":56,"qid":56}
+SPAWN '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'hold-lock' '5000'
+pid=133
+holder line='LOCKED'
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":true,"sem":true,"msg":true,"mid":62,"sid":56,"qid":56,"semval":0,"nattch":0,"qnum":0,"state":12,"players":0,"teams":[0,0],"cells":{"A":0,"B":0,"empty":100,"other":0},"board":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+pid=133 returncode=-9
+reached SEM_UNDO restoration
+{"board": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "cells": {"A": 0, "B": 0, "empty": 100, "other": 0}, "key": 1093337089, "mid": 62, "msg": true, "nattch": 0, "players": 0, "qid": 56, "qnum": 0, "sem": true, "semval": 1, "shm": true, "sid": 56, "state": 12, "teams": [0, 0]}
+pid=133 returncode=-9
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":true,"sem":true,"msg":true}}

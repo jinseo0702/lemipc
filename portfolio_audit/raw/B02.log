@@ -1,0 +1,8 @@
+$ '/home/jinseo/duo/lemipc/lemipc'
+returncode=1
+stderr:
+Usage: /home/jinseo/duo/lemipc/lemipc <team_no>
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'snapshot'
+returncode=0
+stdout:
+{"key":1093337089,"shm":false,"sem":false,"msg":false,"mid":-1,"sid":-1,"qid":-1,"semval":-1,"nattch":0,"qnum":0}

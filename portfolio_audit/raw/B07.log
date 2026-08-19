@@ -1,0 +1,17 @@
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
+SPAWN '/home/jinseo/duo/lemipc/lemipc' '0'
+pid=18
+reached one admitted player
+{"board": "000000000000000000000000000000000000000000000000000A000000000000000000000000000000000000000000000000", "cells": {"A": 1, "B": 0, "empty": 99, "other": 0}, "key": 1093337089, "mid": 44, "msg": true, "nattch": 2, "players": 1, "qid": 38, "qnum": 3, "sem": true, "semval": 1, "shm": true, "sid": 38, "state": 12, "teams": [1, 0]}
+signal SIGINT -> pid=18
+pid=18 returncode=0
+reached all IPC absent
+{"key": 1093337089, "mid": -1, "msg": false, "nattch": 0, "qid": -1, "qnum": 0, "sem": false, "semval": -1, "shm": false, "sid": -1}
+pid=18 returncode=0
+$ '/home/jinseo/duo/lemipc/portfolio_audit/bin/ipc_probe' 'cleanup'
+returncode=0
+stdout:
+{"removed":{"shm":false,"sem":false,"msg":false}}
