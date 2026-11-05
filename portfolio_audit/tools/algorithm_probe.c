@@ -43,6 +43,13 @@ int unlock_sem(int sid)
 	return (0);
 }
 
+int adjust_player_count(int sid, short delta)
+{
+	(void)sid;
+	(void)delta;
+	return (0);
+}
+
 int detach_board(t_shm *board)
 {
 	(void)board;
@@ -204,7 +211,16 @@ static int case_message_kind(void)
 	run_swarm_intelligence(&pd, &st);
 	printf("{\"kind\":%d,\"track\":%d,\"target\":[%d,%d]}\n",
 		g_recv_message.kind, st.track_flag, st.target.x, st.target.y);
-	return (st.track_flag == 1 ? 0 : 1);
+	if (st.track_flag || st.target.x != -1 || st.target.y != -1)
+		return (1);
+	g_recv_message.kind = BROADCAST;
+	run_swarm_intelligence(&pd, &st);
+	if (!st.track_flag || st.target.x != 5 || st.target.y != 6)
+		return (1);
+	g_recv_message.kind = DEATH;
+	g_recv_message.x = 6;
+	run_swarm_intelligence(&pd, &st);
+	return (!(st.track_flag && st.target.x == 5 && st.target.y == 6));
 }
 
 int main(int argc, char **argv)

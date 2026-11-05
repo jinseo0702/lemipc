@@ -54,6 +54,9 @@ $(PRINTF_A):
 
 test : $(TESTSYSTEM)
 
+audit: all test
+	unshare --user --map-root-user --ipc python3 portfolio_audit/tests/run_baseline.py
+
 clean :
 	@make clean -C libft/
 	@make clean -C printf/
@@ -69,4 +72,4 @@ re :
 	@make fclean
 	@make all
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re test audit

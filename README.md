@@ -9,10 +9,10 @@
 ## 핵심 기능
 
 - 공유 메모리에 보드, 전체 인원, 팀별 인원, 게임 상태를 저장합니다.
-- 전역 세마포어 하나로 참가·이동·사망 같은 공유 상태 변경을 직렬화하며 `SEM_UNDO`를 사용합니다.
+- 세마포어 집합의 첫 번째 값으로 참가·이동·사망을 직렬화하고, 두 번째 값으로 등록된 플레이어 프로세스 수를 추적합니다. 두 값 모두 `SEM_UNDO`를 사용합니다.
 - typed message queue 하나를 초기 위치, 게임 시작, 팀 메시지 채널로 나누어 사용합니다.
 - 두 팀에 각 2명씩, 총 4명이 모이면 `START_GAME` 상태로 전환합니다.
-- 반경 3 이내 팀 메시지는 greedy 이동의 목표로 삼고, 목표가 없으면 인접 8방향 중 하나로 이동합니다.
+- 반경 3 이내의 추적 메시지(`BROADCAST`)는 greedy 이동의 목표로 삼고, 목표가 없으면 인접 8방향 중 하나로 이동합니다.
 - `viewmode`는 게임 중 공유 보드와 팀별 인원을 표시합니다.
 
 ## 동작 구조
@@ -24,7 +24,7 @@ player 0/1
   -> 팀 정원 확인, 초기 위치 수신, 보드 배치
   -> 4명 참가 시 START_GAME 메시지 4개 전송
   -> 팀 메시지 수신 -> semaphore lock -> 종료/사망/이동 판정
-  -> 두 SHM mapping 분리 -> 마지막 attachment이면 IPC 제거 시도
+  -> 등록된 플레이어 수 감소 -> 마지막 플레이어가 IPC 제거 -> SHM mapping 분리
 
 viewmode -> SHM attach -> 보드 snapshot 출력 -> detach -> 반복
 ```
@@ -36,7 +36,7 @@ viewmode -> SHM attach -> 보드 snapshot 출력 -> detach -> 반복
 - 전역 세마포어와 typed queue를 선택해 lock ordering을 늘리지 않으면서 deadlock과 data race 가능성을 줄이는 데 집중했습니다. 이 단순화의 성능 효과는 측정하지 않았습니다.
 - 공유 메모리는 프로세스들이 같은 내용을 직접 확인하는 통신 수단으로 선택했습니다.
 - 마지막 플레이어 종료 뒤 자원을 자동으로 회수하고 Viewer도 자동 종료하는 lifecycle을 의도했습니다.
-- `DEATH` 메시지는 팀원이 게임 종료 여부를 확인하도록 만든 신호입니다. 현재 수신 경로의 실제 동작에는 아래 한계가 있습니다.
+- `DEATH`를 받은 팀원은 기존 추적 상태를 보존하며, 같은 루프에서 남은 팀 수로 게임 종료 여부를 확인합니다.
 - 원래 지원한 cooperative 종료 경로는 `SIGINT`입니다.
 
 ## Build
@@ -84,15 +84,14 @@ Viewer를 한 터미널에서 실행합니다.
 |---|---|
 | 비교 기준 | 소스 기반 불변식, Linux System V IPC 의미, bounded process/IPC lifecycle |
 | 실행 case | 23 |
-| 분류 | PASS 16 · PARTIAL 4 · FAIL 2 · CRASH 1 |
+| 수정 전 분류 | PASS 16 · PARTIAL 4 · FAIL 2 · CRASH 1 |
+| 수정 후 분류 | PASS 20 · PARTIAL 3 (비정상 종료 관련 B17–B19) |
 | 대표 관찰 | 동시 IPC 생성, 4-player start barrier, `SIGINT` 전파와 cleanup, `SEM_UNDO` 및 semaphore stress를 확인 |
 
-전체 결과: [`portfolio_audit/test_results.md`](portfolio_audit/test_results.md)
+Linux에서 `make audit`를 실행하면 별도 IPC 네임스페이스에서 23개 사례를 검사하고 새 결과를 임시 디렉터리에 기록합니다. B13에서는 관전자 매핑을 유지한 채 마지막 플레이어를 종료하는 실험을 16회 반복합니다. [수정 전 감사 결과](portfolio_audit/test_results.md)
 
 ## 확인된 한계
 
-- B13은 8회의 Viewer+player graceful 종료 중 1회에서 Viewer와 세 종류의 IPC가 남은 lifecycle/liveness 문제입니다. `CRASH` 분류는 segmentation fault가 아니라 Viewer가 끝나지 않아 deadline을 넘긴 결과입니다.
-- `DEATH` 메시지는 별도 분기 없이 일반 좌표처럼 추적 목표가 된 뒤 공통 게임 종료 검사를 거칩니다. 메시지의 원래 목적과 수신 동작이 완전히 일치하지 않습니다.
 - `SIGTERM`/`SIGKILL` 뒤에는 ghost player와 IPC가 남을 수 있습니다. 이는 측정된 robustness limitation이며, 원래 지원 범위였던 `SIGINT` 종료와 구분해야 합니다.
 
 ## 상세 문서

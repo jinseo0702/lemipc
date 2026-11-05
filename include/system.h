@@ -17,7 +17,8 @@
 success return 1 / fail return -1
 use ftok msgget semget shmget
 */
-int		init_ipcs_ids(t_playerData *playerData);
+int		init_ipcs_ids(t_playerData *playerData, int initialize_game);
+int     adjust_player_count(int sid, short delta);
 /*
 check first player by (0666 | IPC_CREAT | IPC_EXCL)
 return 1 is player is first player 0 is second player

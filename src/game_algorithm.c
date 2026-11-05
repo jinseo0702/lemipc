@@ -201,7 +201,7 @@ static void	run_swarm_intelligence(t_playerData *pd, t_game_state *st)
 	int			dist;
 
 	recv_result = recv_team_msg(pd, &msgbuf);
-	if (recv_result == 1)
+	if (recv_result == 1 && msgbuf.kind == BROADCAST)
 	{
 		dist = calculate_distance_sq(pd->x, pd->y, msgbuf.x, msgbuf.y);
 		if (dist <= 9)
@@ -297,10 +297,7 @@ static int	process_post_unlock(t_playerData *pd, t_game_state *st)
 		if (st->die_flag)
 		{
 			send_death_message(pd);
-			if (pd->readonly != NULL)
-				detach_board(pd->readonly);
-			if (pd->readwrite != NULL)
-				detach_board(pd->readwrite);
+			terminate_player(pd);
 			return (1);
 		}
 		send_chase_message(pd, st);
@@ -342,17 +339,17 @@ int	run_game_loop(t_playerData *pd)
 
 void	terminate_player(t_playerData *pd)
 {
+	/* Viewers can hold the segment while the last registered player leaves. */
+	if (lock_sem(pd->sid) == 0) {
+		if (adjust_player_count(pd->sid, -1) == 0)
+			clear_ipcs(pd->mid, pd->sid, pd->qid);
+		else
+			unlock_sem(pd->sid);
+	}
 	if (pd->readonly != NULL)
 		detach_board(pd->readonly);
 	if (pd->readwrite != NULL)
 		detach_board(pd->readwrite);
 	pd->readonly = NULL;
 	pd->readwrite = NULL;
-
-	sleep(1);
-	struct shmid_ds ds;
-	shmctl(pd->mid, IPC_STAT, &ds);
-	if (ds.shm_nattch == 0) {
-		clear_ipcs(pd->mid, pd->sid, pd->qid);
-	}
 }

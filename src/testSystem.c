@@ -22,7 +22,7 @@ int test_init_and_clear(void){
   t_playerData player;
 
   init_playerdatata(&player, 0);
-  if (init_ipcs_ids(&player) == -1) {
+  if (init_ipcs_ids(&player, 0) == -1) {
     return (1);
   }
   clear_ipcs(player.mid, player.sid, player.qid);
@@ -37,7 +37,7 @@ int test_check_fist_player(void){
     printf("It's fist player is run\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       exit(1);
     }
     exit (0);
@@ -69,7 +69,7 @@ int test_check_fist_player(void){
     printf("It's second player is run\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       return(1);
     }
     clear_ipcs(player.mid, player.sid, player.qid);
@@ -85,7 +85,7 @@ int test_shm_player(void){
     printf("It's fist player is run\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       exit(1);
     }
     t_shm *readonly = readonly_board(player.mid);
@@ -134,7 +134,7 @@ int test_shm_player(void){
     printf("It's second player is run\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       return(1);
     }
     t_shm *readonly = readonly_board(player.mid);
@@ -155,7 +155,7 @@ int test_shm_player(void){
 int test_sem(void){
   t_playerData player;
   init_playerdatata(&player, 0);
-  if (init_ipcs_ids(&player) == -1) {
+  if (init_ipcs_ids(&player, 0) == -1) {
     return (1);
   }
   t_shm *ptr = readwrite_board(player.mid);
@@ -181,12 +181,10 @@ int test_sem(void){
 }
 
 int test_sem_clear_ipcs(void){
-  t_playerData player;
-  init_playerdatata(&player, 0);
-  if (init_ipcs_ids(&player) == -1) {
+  key_t key = ftok(PATHNAME, PROJID);
+  if (key == (key_t)-1)
     return (1);
-  }
-  clear_ipcs(player.mid, player.sid, player.qid);
+  clear_ipcs(shmget(key, 1, 0), semget(key, 0, 0), msgget(key, 0));
   return (0);
 }
 
@@ -198,7 +196,7 @@ int test_msq_player(void){
     printf("It's fist player is send msg\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       exit(1);
     }
 
@@ -243,7 +241,7 @@ int test_msq_player(void){
     printf("It's second player is run\n");
     t_playerData player;
     init_playerdatata(&player, 0);
-    if (init_ipcs_ids(&player) == -1) {
+    if (init_ipcs_ids(&player, 0) == -1) {
       return(1);
     }
 	t_myMsgbuf msgbuf;
