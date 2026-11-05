@@ -4,11 +4,9 @@
 
 int init_shm_and_pos_make(t_playerData *playerData){
   if (attach_shm(playerData) == -1) return (-1);
-  if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return -1; }
   playerData->readwrite->game_state = RECRUITMENT;
   ft_memset(playerData->readwrite->board, 48, sizeof(playerData->readwrite->board));
   ft_memset(playerData->readwrite->team_nbs, 0, sizeof(playerData->readwrite->team_nbs));
-  if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return -1; }
   t_pos pos[WIDTH * HEIGHT];
   make_rand_position(pos);
   int max_cnt = MAXTEAMNB * MAXTEAM;
@@ -24,23 +22,43 @@ int init_shm_and_pos_make(t_playerData *playerData){
 	return (0);
 }
 
-int update_player_data(t_playerData *playerData){
-  if (playerData->readonly == NULL && playerData->readwrite == NULL){
-    if (attach_shm(playerData) == -1) return (-1);
-  }
-  if (check_player_nbs(playerData) == -1) return (2);
-  t_myMsgbuf msgbuf;
-  if (recv_msg(playerData->qid, &msgbuf, BROADCAST) == -1) return (-1);
-  if (msgbuf.kind == INIT_PLAYER){
-    playerData->x = msgbuf.x;
-    playerData->y = msgbuf.y;
-    if (update_board(playerData, (t_pos){.x = playerData->x, .y = playerData->y}, playerData->team_no) == -1) return (-1);
-  }
-  else {
-    send_msg(playerData->qid, &msgbuf);
-    return (-1);
-  }
-  return (0);
+/* Called with the mutex held. Publish the position, membership and start
+ * barrier as one admission so a peer cannot tear down or start midway. */
+int update_player_data(t_playerData *player)
+{
+    t_shm *game = player->readwrite;
+    int team = player->team_no - 'A';
+    int capacity = MAXTEAMNB * MAXTEAM;
+    t_myMsgbuf position;
+
+    if (game->game_state != RECRUITMENT || game->team_nbs[team] >= MAXTEAMNB)
+        return 1;
+    if (recv_msg(player->qid, &position, BROADCAST) != 0)
+        return -1;
+    if (position.kind != INIT_PLAYER || adjust_player_count(player->sid, 1) == -1) {
+        send_msg(player->qid, &position);
+        return -1;
+    }
+    player->x = position.x;
+    player->y = position.y;
+    game->board[player->x][player->y] = player->team_no;
+    player->team_mb_cnt = ++game->team_nbs[team];
+    if (++game->player_nbs == capacity) {
+        t_myMsgbuf start = {.mytype = START_GAME, .kind = START_GAME,
+                            .team_no = NONE, .msg_order = DO_NOTHING};
+        for (int i = 0; i < capacity; ++i) {
+            if (send_msg(player->qid, &start) == -1) {
+                game->game_state = END_GAME;
+                game->board[player->x][player->y] = '0';
+                --game->player_nbs;
+                --game->team_nbs[team];
+                adjust_player_count(player->sid, -1);
+                return -1;
+            }
+        }
+        game->game_state = START_GAME;
+    }
+    return 0;
 }
 
 int clear_not_reject_player(t_playerData *playerData){

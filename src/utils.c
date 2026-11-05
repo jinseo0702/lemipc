@@ -42,7 +42,7 @@ const char *get_team_color(int team_no) {
 }
 
 int view_board(void){
-  static int game_start_flag = 0;
+  static int observed_shmid = -1;
   int shmid;
   key_t key = ftok(PATHNAME, PROJID);
   if (key == -1){
@@ -50,15 +50,15 @@ int view_board(void){
     return (-1);
   }
   shmid = shmget(key, sizeof(t_shm), 0666);
-  if (game_start_flag == 0 && shmid == -1) {
+  if (observed_shmid != -1 && shmid != observed_shmid) {
+    return (2);
+  }
+  if (shmid == -1) {
     return (0);
   }
-  else if (game_start_flag == 0 && shmid != -1) {
-    game_start_flag = 1;
+  if (observed_shmid == -1) {
+    observed_shmid = shmid;
     ft_printf("Game Start\n");
-  }
-  else if (shmid == -1 && game_start_flag == 1) {
-    return (2);
   }
   t_shm *readonly = readonly_board(shmid);
   if (readonly == NULL){
@@ -107,18 +107,19 @@ int check_argument(int argc, const char *argv[], int *team_no){
 		ft_fprintf(2, "Usage: %s <team_no>\n", argv[0]);
 		return (1);
 	}
-	for (int i = 0 ; argv[1][i]; i++) {
-		if (ft_isdigit(argv[1][i]) == 0) {
-			ft_fprintf(2, "Invalid team number: %s\n", argv[1]);
-			return (1);
+	const char *digit = argv[1];
+	int value = 0;
+	while (ft_isdigit(*digit)) {
+		value = value * 10 + (*digit++ - '0');
+		if (value >= MAXTEAM)
+			break;
+		if (*digit == '\0') {
+			*team_no = value;
+			return (0);
 		}
 	}
-	*team_no = ft_atoi(argv[1]);
-	if (*team_no < 0 || *team_no > MAXTEAM - 1) {
-		ft_fprintf(2, "Invalid team number: %d\n", *team_no);
-		return (1);
-	}
-	return (0);
+	ft_fprintf(2, "Invalid team number: %s\n", argv[1]);
+	return (1);
 }
 
 int	check_first_step_flag(int flag, int team_no){

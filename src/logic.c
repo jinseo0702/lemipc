@@ -2,33 +2,20 @@
 #include "../include/system.h"
 #include <string.h>
 
-int first_step(t_playerData *playerData){
-	int first_flag = 0;
-	if ((first_flag = init_ipcs_ids(playerData)) == -1) return (-1);
-	if (first_flag == 2){
-		if (init_shm_and_pos_make(playerData) == -1) return (-1);
-	}
-	if (update_player_data(playerData) == 2) {
-		clear_not_reject_player(playerData);
-		return (1); //정원가득참
-	}
-	int total_player_nbs = return_total_player_nbs(playerData);
-	if (total_player_nbs == -1) return (-1);
-	int max_player_nbs = MAXTEAMNB * MAXTEAM;
-	if (total_player_nbs == max_player_nbs) {
-		if (change_game_state(playerData) != 2) return (-1);
-		t_myMsgbuf msgbuf;
-		msgbuf.mytype = START_GAME;
-		msgbuf.x = 0;
-		msgbuf.y = 0;
-		msgbuf.kind = START_GAME;
-		msgbuf.team_no = NONE;
-		msgbuf.msg_order = DO_NOTHING;
-		for (int i = 0; i < max_player_nbs; i++) {
-			if (send_msg(playerData->qid, &msgbuf) == -1) return (-1);
-		}
-	}
-	return (0);
+int first_step(t_playerData *player)
+{
+    if (init_ipcs_ids(player, 1) == -1)
+        return -1;
+    if (!player->readwrite && attach_shm(player) == -1)
+        return -1;
+    if (lock_sem(player->sid) == -1)
+        return -1;
+    int status = update_player_data(player);
+    if (unlock_sem(player->sid) == -1)
+        return -1;
+    if (status != 0)
+        clear_not_reject_player(player);
+    return status;
 }
 
 void	init_playerdatata(t_playerData *data, int team_no){
@@ -42,28 +29,6 @@ void	init_playerdatata(t_playerData *data, int team_no){
 	data->y = 0;
 	data->readonly = NULL;
 	data->readwrite = NULL;
-}
-
-int		check_player_nbs(t_playerData *player){
-	int out_flag = 0;
-	if (lock_sem(player->sid) == -1) { perror("lock_sem"); return 1; }
-	if (player->readwrite->team_nbs[player->team_no - 'A'] < MAXTEAMNB && player->readwrite->game_state == RECRUITMENT){
-		player->readwrite->team_nbs[player->team_no - 'A'] += 1;
-		player->readwrite->player_nbs++;
-		player->team_mb_cnt = player->readwrite->team_nbs[player->team_no - 'A'];
-	}
-	else{
-		out_flag = -1;
-	}
-	if (unlock_sem(player->sid) == -1) { perror("unlock_sem"); return 1; }
-	return (out_flag);
-}
-
-int		change_game_state(t_playerData *player){
-	if (lock_sem(player->sid) == -1) { perror("lock_sem"); return 1; }
-	player->readwrite->game_state = START_GAME;
-	if (unlock_sem(player->sid) == -1) { perror("unlock_sem"); return 1; }
-	return 2;
 }
 
 int		change_game_state_end(t_playerData *player){
@@ -99,21 +64,6 @@ int attach_shm(t_playerData *playerData){
 		return (-1);
 	}
 	return (0);
-}
-
-int update_board(t_playerData *playerData, t_pos pos, int team_no){
-  if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return (-1); }
-  playerData->readwrite->board[pos.x][pos.y] = team_no;
-  if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
-  return (0);
-}
-
-int return_total_player_nbs(t_playerData *playerData){
-	int total_player_nbs = 0;
-	if (lock_sem(playerData->sid) == -1) { perror("lock_sem"); return (-1); }
-	total_player_nbs = playerData->readwrite->player_nbs;
-	if (unlock_sem(playerData->sid) == -1) { perror("unlock_sem"); return (-1); }
-	return (total_player_nbs);
 }
 
 int return_total_player_team_nbs(t_playerData *playerData, int *total_player_nbs){

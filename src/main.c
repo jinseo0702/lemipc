@@ -31,7 +31,7 @@ void sig_is_come(t_playerData *player){
 
 int main(int argc, char *argv[]){
   int team_no = 0;
-  if (argc == 2 && ft_strncmp(argv[1], "viewmode", 8) == 0) {
+  if (argc == 2 && ft_strncmp(argv[1], "viewmode", sizeof("viewmode")) == 0) {
     while (1) {
       if (view_board() == 2) break;
       usleep(16667);
@@ -43,15 +43,14 @@ int main(int argc, char *argv[]){
   }
   t_playerData playerData;
   init_playerdatata(&playerData, team_no);
-  int flag = first_step(&playerData);
-  if (check_first_step_flag(flag, team_no) == 1) {
-    return (1);
-  }
-
   if (setup_signals() == -1)
   {
 	  perror("sigaction");
 	  return 1;
+  }
+  int flag = first_step(&playerData);
+  if (check_first_step_flag(flag, team_no) == 1) {
+    return (1);
   }
 
   t_myMsgbuf msgbuf;
@@ -63,13 +62,14 @@ int main(int argc, char *argv[]){
 	}
     int error = recv_msg(playerData.qid, &msgbuf, START_GAME);
     if (error == ENOMSG) continue;
-    if (msgbuf.kind == START_GAME) break;
-    else if (error == -1) {
+    if (error == -1) {
       ft_fprintf(2, "Fatal Error\n");
+      change_game_state_end(&playerData);
+      terminate_player(&playerData);
       return (1);
     }
+    if (msgbuf.kind == START_GAME) break;
   }
   sleep(2);
-  run_game_loop(&playerData);
-  return (0);
+  return (run_game_loop(&playerData) == -1);
 }

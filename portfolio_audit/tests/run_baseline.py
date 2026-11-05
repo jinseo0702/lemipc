@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 
+import ctypes
 import json
 import os
 import select
 import signal
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-AUDIT = ROOT / "portfolio_audit"
+AUDIT = Path(tempfile.mkdtemp(prefix="lemipc-audit-"))
 RAW = AUDIT / "raw"
 LEMIPC = ROOT / "lemipc"
 TESTSYSTEM = ROOT / "testSystem"
@@ -19,6 +21,26 @@ IPC_PROBE = AUDIT / "bin" / "ipc_probe"
 ALGORITHM_PROBE = AUDIT / "bin" / "algorithm_probe"
 RECRUITMENT = 12
 START_GAME = 13
+
+
+class ReadOnlyAttachment:
+    """Keep a spectator mapping alive across the last player's exit (Linux)."""
+    libc = ctypes.CDLL(None, use_errno=True)
+    libc.shmat.argtypes = [ctypes.c_int, ctypes.c_void_p, ctypes.c_int]
+    libc.shmat.restype = ctypes.c_void_p
+    libc.shmdt.argtypes = [ctypes.c_void_p]
+
+    def __init__(self, shmid):
+        self.shmid = shmid
+
+    def __enter__(self):
+        self.address = self.libc.shmat(self.shmid, None, 0o10000)  # SHM_RDONLY
+        if self.address == ctypes.c_void_p(-1).value:
+            raise OSError(ctypes.get_errno(), "shmat")
+
+    def __exit__(self, *_):
+        if self.libc.shmdt(self.address) == -1:
+            raise OSError(ctypes.get_errno(), "shmdt")
 
 
 class Baseline:
@@ -172,7 +194,7 @@ class Baseline:
                 "expected": expected,
                 "actual": actual,
                 "evidence_type": evidence_type,
-                "raw": str(path.relative_to(ROOT)),
+                "raw": str(path.relative_to(AUDIT)),
             }
         )
         print(f"{case_id} {classification:7} {name}")
@@ -261,8 +283,10 @@ class Baseline:
         snap = self.snapshot()
         self.signal_and_wait([process])
         self.wait_absent()
+        rejected = not accepted and process.returncode == 1
+        clean = not any(snap[k] for k in ("shm", "sem", "msg"))
         return (
-            "FAIL" if accepted else "PASS",
+            "PASS" if rejected and clean else "FAIL",
             "empty string is rejected as a non-team argument",
             f"accepted={accepted}, snapshot={snap}",
         )
@@ -276,7 +300,7 @@ class Baseline:
             process.send_signal(signal.SIGINT)
         self.communicate(process, timeout=2)
         return (
-            "FAIL" if accepted else "PASS",
+            "PASS" if not accepted and process.returncode == 1 else "FAIL",
             "only the exact documented token 'viewmode' enters viewer mode",
             f"prefix_variant_entered_viewer={accepted}, exit={process.returncode}",
         )
@@ -418,7 +442,7 @@ class Baseline:
 
     def case_viewer(self):
         observations = []
-        for iteration in range(1, 9):
+        for iteration in range(1, 17):
             self.cleanup()
             viewer_out = RAW / f"B13.viewer.{iteration:02d}.stdout"
             viewer_err = RAW / f"B13.viewer.{iteration:02d}.stderr"
@@ -436,9 +460,10 @@ class Baseline:
                         label=f"viewer iteration {iteration} player",
                     )
                     time.sleep(0.12)
-                    codes = self.signal_and_wait([player])
-                    after_player_exit = self.snapshot()
-                    stuck = after_player_exit["shm"]
+                    with ReadOnlyAttachment(snap["mid"]):
+                        codes = self.signal_and_wait([player])
+                        after_player_exit = self.snapshot()
+                    stuck = any(after_player_exit[k] for k in ("shm", "sem", "msg"))
                     if not stuck:
                         self.communicate(viewer, timeout=2)
                     output = viewer_out.read_text(encoding="utf-8", errors="replace")
@@ -466,12 +491,12 @@ class Baseline:
             return (
                 "CRASH",
                 "viewer exits after each last player removes SHM; no graceful run leaves IPC",
-                f"8 iterations: viewer/IPC stuck after {stuck_count}; rendered_all={rendered_all}; observations={observations}",
+                f"{len(observations)} iterations: viewer/IPC stuck after {stuck_count}; rendered_all={rendered_all}; observations={observations}",
             )
-        passed = rendered_all and all(item["player_exits"] == [0] for item in observations)
+        passed = rendered_all and all(item["player_exits"] == [0] and item["viewer_exit"] == 0 for item in observations)
         return (
             "PASS" if passed else "FAIL",
-            "viewer renders and exits after SHM removal in all 8 iterations",
+            "viewer renders and exits after SHM removal in every iteration with a spectator attached",
             f"observations={observations}",
         )
 
@@ -623,7 +648,7 @@ class Baseline:
         data = json.loads(result.stdout.strip())
         ignored = data["kind"] == 14 and data["track"] == 1
         return (
-            "PARTIAL" if ignored else "PASS",
+            "PASS" if result.returncode == 0 and not ignored else "FAIL",
             "DEATH and chase/BROADCAST messages have distinct receive-side semantics",
             f"probe={data}; DEATH was converted into a chase target={ignored}",
         )
@@ -664,8 +689,10 @@ class Baseline:
         totals = {key: 0 for key in ["PASS", "PARTIAL", "FAIL", "CRASH", "HARNESS_ERROR"]}
         for result in self.results:
             totals[result["classification"]] += 1
+        revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                                  capture_output=True, text=True)
         payload = {
-            "commit": "108c4fc68c90e41723fe2ce35d6cb4b443524ed2",
+            "commit": revision.stdout.strip() or "working tree",
             "profile": "PROFILE C (lemipc), resolving the supplied PROFILE B label conflict",
             "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
             "totals": totals,
@@ -708,7 +735,19 @@ class Baseline:
 
 if __name__ == "__main__":
     os.environ.setdefault("LC_ALL", "C")
+    print(f"Audit output: {AUDIT}", flush=True)
+    (AUDIT / "bin").mkdir()
+    for binary in (IPC_PROBE, ALGORITHM_PROBE):
+        source = ROOT / "portfolio_audit" / "tools" / (binary.name + ".c")
+        subprocess.run(["cc", "-Wall", "-Wextra", "-Werror", str(source), "-o", str(binary)],
+                       check=True)
     runner = Baseline()
     runner.run()
     if any(result["classification"] == "HARNESS_ERROR" for result in runner.results):
         sys.exit(2)
+    unsupported = {"B17", "B18", "B19"}
+    for result in runner.results:
+        if result["classification"] != "PASS" and not (
+            result["classification"] == "PARTIAL" and result["id"] in unsupported
+        ):
+            sys.exit(1)
